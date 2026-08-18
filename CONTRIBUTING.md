@@ -13,7 +13,7 @@ containing case data. Prefer a blank report and synthetic example. A GitHub
 account and sign-in are required to open an issue.
 
 Security vulnerabilities must use
-[private vulnerability reporting](https://github.com/jasonwi1202/threadseer-support/security/advisories/new),
+[private vulnerability reporting](https://github.com/wittenauer-software/threadseer-support/security/advisories/new),
 not a public issue.
 
 ## Documentation changes
@@ -30,4 +30,5 @@ not a public issue.
 - Run `python tools/validate_docs.py` before opening a pull request.
 
 By contributing content, you represent that you have the right to provide it and
-agree that it may be used in Threadseer support and documentation materials.
+grant Wittenauer Software LLC permission to use it in Threadseer support and
+documentation materials.

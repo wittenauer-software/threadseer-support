@@ -1,5 +1,7 @@
 # Security policy
 
+Wittenauer Software LLC maintains this security policy for Threadseer.
+
 ## Supported versions
 
 Before public Marketplace release, only the exact candidate supplied through an
@@ -11,7 +13,7 @@ published in Release Notes.
 ## Report a vulnerability privately
 
 Do not disclose suspected vulnerabilities in a public issue. Submit them through
-[GitHub private vulnerability reporting](https://github.com/jasonwi1202/threadseer-support/security/advisories/new).
+[GitHub private vulnerability reporting](https://github.com/wittenauer-software/threadseer-support/security/advisories/new).
 
 Describe the affected Threadseer version, Power BI environment, impact,
 reproduction steps, and any mitigations you have identified. Use synthetic data

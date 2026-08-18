@@ -1,19 +1,19 @@
 # Threadseer support
 
-This public repository hosts the support hub, legal notices, and issue tracker for **Threadseer for Power BI**.
+This company-owned public repository hosts the support hub, legal notices, and issue tracker for **Threadseer for Power BI**, published and owned by **Wittenauer Software LLC**.
 
-- [Threadseer product and documentation home](https://jasonwi1202.github.io/threadseer-support/)
-- [Getting started](https://jasonwi1202.github.io/threadseer-support/getting-started/)
-- [Plans and licensing](https://jasonwi1202.github.io/threadseer-support/licensing/)
-- [Release notes](https://jasonwi1202.github.io/threadseer-support/release-notes/)
-- [Known issues and product limits](https://jasonwi1202.github.io/threadseer-support/known-issues/)
-- [Support guide](https://jasonwi1202.github.io/threadseer-support/support/)
-- [Open a bug report](https://github.com/jasonwi1202/threadseer-support/issues/new?template=bug_report.yml)
-- [Request a feature](https://github.com/jasonwi1202/threadseer-support/issues/new?template=feature_request.yml)
-- [Report a security vulnerability privately](https://github.com/jasonwi1202/threadseer-support/security/advisories/new)
-- [Privacy notice](https://jasonwi1202.github.io/threadseer-support/privacy/)
-- [Terms of use](https://jasonwi1202.github.io/threadseer-support/terms/)
-- [Accessibility](https://jasonwi1202.github.io/threadseer-support/accessibility/)
+- [Threadseer product and documentation home](https://wittenauer-software.github.io/threadseer-support/)
+- [Getting started](https://wittenauer-software.github.io/threadseer-support/getting-started/)
+- [Plans and licensing](https://wittenauer-software.github.io/threadseer-support/licensing/)
+- [Release notes](https://wittenauer-software.github.io/threadseer-support/release-notes/)
+- [Known issues and product limits](https://wittenauer-software.github.io/threadseer-support/known-issues/)
+- [Support guide](https://wittenauer-software.github.io/threadseer-support/support/)
+- [Open a bug report](https://github.com/wittenauer-software/threadseer-support/issues/new?template=bug_report.yml)
+- [Request a feature](https://github.com/wittenauer-software/threadseer-support/issues/new?template=feature_request.yml)
+- [Report a security vulnerability privately](https://github.com/wittenauer-software/threadseer-support/security/advisories/new)
+- [Privacy notice](https://wittenauer-software.github.io/threadseer-support/privacy/)
+- [Terms of use](https://wittenauer-software.github.io/threadseer-support/terms/)
+- [Accessibility](https://wittenauer-software.github.io/threadseer-support/accessibility/)
 
 Threadseer is distributed as a self-contained Power BI custom visual. Its product source code is maintained privately; this repository intentionally contains only public support and website content.
 

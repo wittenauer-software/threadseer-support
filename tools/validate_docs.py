@@ -13,7 +13,7 @@ from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-BASE_URL = "https://jasonwi1202.github.io/threadseer-support"
+BASE_URL = "https://wittenauer-software.github.io/threadseer-support"
 REQUIRED_PAGES = (
     "",
     "getting-started",
@@ -160,7 +160,7 @@ require(
 privacy = page_path("privacy").read_text(encoding="utf-8")
 terms = page_path("terms").read_text(encoding="utf-8")
 for name, content in (("Privacy", privacy), ("Terms", terms)):
-    require("Jason Wittenauer" in content, f"{name} must identify the publisher")
+    require("Wittenauer Software LLC" in content, f"{name} must identify the publisher")
     require("verified private" in content, f"{name} must explain the private-contact boundary")
 require(
     "Microsoft Standard Contract for Microsoft Marketplace" in terms,

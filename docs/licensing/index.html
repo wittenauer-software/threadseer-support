@@ -3,62 +3,96 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Compare Threadseer Community and planned Professional capabilities, scale boundaries, and Microsoft-managed licensing behavior.">
-  <title>Plans &amp; Licensing | Threadseer</title>
-  <link rel="stylesheet" href="../assets/styles.css?v=20260809-docs-launch">
+  <meta name="description" content="Compare Threadseer Community and Professional pricing, data limits, features, and availability.">
+  <title>Plans &amp; Pricing | Threadseer</title>
+  <link rel="stylesheet" href="../assets/styles.css?v=20260822-business-copy">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="../getting-started/">Getting started</a><a href="./" aria-current="page">Plans</a><a href="../support/">Support</a><a href="../known-issues/">Known issues</a><a href="../release-notes/">Release notes</a></div></nav></header>
+  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="../getting-started/">Getting started</a><a href="./" aria-current="page">Pricing</a><a href="../support/">Get help</a><a href="../known-issues/">Known issues</a><a href="../release-notes/">Release status</a></div></nav></header>
   <main id="main" class="page"><div class="content">
-    <div class="eyebrow">Edition guide</div>
-    <h1>Plans &amp; Licensing</h1>
-    <p class="lede">Threadseer Community and Professional provide the same analytical capabilities. Professional primarily unlocks higher analysis capacity through Microsoft-managed licensing.</p>
-    <div class="notice warning"><strong>Professional is not publicly purchasable.</strong> No Marketplace submission has been made. The planned United States launch price is US$20 per assigned user per month or US$200 per assigned user per year, but checkout, assignment, and availability instructions will be published only after a future live offer is verified.</div>
+    <div class="eyebrow">Plans and pricing</div>
+    <h1>Choose the data capacity you need.</h1>
+    <p class="lede">Community and Professional include the same fields, views, metrics, and results. Professional is for people who need to analyze more event rows at one time.</p>
+    <div class="notice warning"><strong>Not yet available for public purchase.</strong> Threadseer has not been submitted to Microsoft Marketplace. The prices below are the approved plan for an initial United States launch, not a live offer.</div>
 
-    <h2>Edition comparison</h2>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Capability</th><th>Community</th><th>Professional (planned)</th></tr></thead>
+    <div class="plan-grid" aria-label="Threadseer plans">
+      <article class="card plan-card">
+        <div class="eyebrow">Community</div>
+        <h2>Free</h2>
+        <p class="price">$0</p>
+        <p>Explore the complete Threadseer workflow with up to <strong>25,000 event rows</strong> in each analysis.</p>
+        <ul class="checklist">
+          <li>All ten analysis and investigation views</li>
+          <li>All supported fields, metrics, controls, and comparisons</li>
+          <li>Same calculations and results as Professional at Community scale</li>
+          <li>No Threadseer account required</li>
+        </ul>
+      </article>
+      <article class="card plan-card featured">
+        <div class="eyebrow">Professional (planned)</div>
+        <h2>For larger analyses</h2>
+        <p class="price">$20 <span>/ assigned user / month</span></p>
+        <p class="price-secondary">or $200 per assigned user per year—a $40 annual saving</p>
+        <p>Analyze up to a <strong>supported baseline of 100,000 event rows</strong>. Threadseer may attempt larger complete datasets, up to 1,000,000 rows, when the available Power BI memory and device resources permit.</p>
+        <ul class="checklist">
+          <li>Everything in Community</li>
+          <li>Higher data capacity through Microsoft-managed licensing</li>
+          <li>No separate Threadseer account or licensing server</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2>The main difference is data capacity</h2>
+    <div class="table-wrap" role="region" aria-label="Community and Professional comparison" tabindex="0"><table>
+      <thead><tr><th>What you get</th><th>Community</th><th>Professional (planned)</th></tr></thead>
       <tbody>
-        <tr><td><strong>Explicit analysis scale</strong></td><td>Up to 25,000 input events.</td><td>Measured 100,000-event supported baseline. Adaptive Scale may attempt larger complete selections up to 1,000,000 when local resources permit.</td></tr>
-        <tr><td><strong>Required fields</strong></td><td>Case ID, Activity, Timestamp.</td><td>Same.</td></tr>
-        <tr><td><strong>Mapped fields</strong></td><td>Activity Category, End Timestamp, Resource, Outcome, Value or Cost, and up to three Additional Dimensions.</td><td>Same.</td></tr>
-        <tr><td><strong>Workspace and metrics</strong></td><td>All ten views and all current metrics, controls, projections, and comparisons.</td><td>Same.</td></tr>
-        <tr><td><strong>Analytical results</strong></td><td>Complete deterministic calculations for selections within 25,000 rows.</td><td>Identical calculations, with higher admitted capacity.</td></tr>
-        <tr><td><strong>Privacy architecture</strong></td><td>No Threadseer account, vendor licensing server, process telemetry, or external analysis engine.</td><td>Same. Microsoft supplies only the Power BI license signal.</td></tr>
+        <tr><td><strong>Event rows in each analysis</strong></td><td>Up to 25,000</td><td>Supported baseline of 100,000, with conditional attempts above that level</td></tr>
+        <tr><td><strong>Fields you can add</strong></td><td>All supported fields</td><td>Same</td></tr>
+        <tr><td><strong>Views and analysis tools</strong></td><td>All current views, metrics, controls, and comparisons</td><td>Same</td></tr>
+        <tr><td><strong>Results</strong></td><td>Complete results within the Community limit</td><td>The same results, with more data capacity</td></tr>
+        <tr><td><strong>Data privacy</strong></td><td>Data stays in Power BI and is not sent to us</td><td>Same</td></tr>
       </tbody>
     </table></div>
-
-    <h2>How Professional licensing is designed to work</h2>
-    <ol class="checklist">
-      <li>When a public offer is available, customers purchase the Professional plan through Microsoft Marketplace.</li>
-      <li>An administrator assigns the license to users through Microsoft's licensing tools.</li>
-      <li>The Power BI host reports the assigned Threadseer service-plan state to the visual through Microsoft's licensing API.</li>
-      <li>An Active or Warning plan enables Professional. Other, unavailable, or unsupported states remain Community.</li>
-    </ol>
-    <p>Threadseer does not run a publisher licensing server, create customer accounts, or transmit report/process data as part of licensing. Professional licensing is required only for Professional-scale selections; it does not remove mapped fields or alter results at Community scale. License assignment and entitlement are managed through Microsoft's licensing tools.</p>
-    <p>Microsoft documents AppSource purchase and Microsoft 365 license assignment for licensed visuals. See Microsoft's <a href="https://learn.microsoft.com/en-us/power-bi/developer/visuals/licensing-api">licensing and transactability guidance</a>.</p>
-
-    <h2>Professional environment limitations</h2>
-    <p>Microsoft currently documents license management or enforcement as unsupported in:</p>
-    <ul class="checklist">
-      <li>Publish to web and PaaS embedded scenarios;</li>
-      <li>national or regional clouds where transactability is unavailable;</li>
-      <li>Power BI Report Server; and</li>
-      <li>REST API PDF or PowerPoint export.</li>
-    </ul>
-    <p>Threadseer does not treat an unsupported or unavailable license signal as Professional access. Community behavior may remain available where the visual itself can run, but that does not promise that every environment supports interactive analysis, rendering, export, or Marketplace distribution. Review Microsoft's current <a href="https://learn.microsoft.com/en-us/power-bi/developer/visuals/custom-visual-licenses">Power BI visual licensing limitations</a>.</p>
+    <p class="meta">Larger Professional analyses are not guaranteed. Capacity depends on the shape of the data, Power BI, WebView2, available memory, and the device. Threadseer stops instead of analyzing a partial dataset.</p>
 
     <h2>Pricing and availability</h2>
     <ul class="checklist">
       <li>Community is free for personal, educational, evaluation, and internal commercial use. It is not limited to non-commercial use.</li>
       <li>Professional launch pricing is US$20 per assigned user per month or US$200 per assigned user per year.</li>
-      <li>There is no time-limited Professional trial at launch; Community is the permanent free evaluation path.</li>
-      <li>Initial Marketplace availability is limited to the United States.</li>
+      <li>There is no time-limited Professional trial at launch. You can use Community free for as long as you like.</li>
+      <li>The initial Marketplace plan is limited to the United States.</li>
     </ul>
     <p>Community is a feature tier of the same proprietary Threadseer visual, not a separate open-source or redistributable product. When Threadseer is acquired through Microsoft Marketplace, Community use is governed by the <a href="https://learn.microsoft.com/en-us/legal/marketplace/standard-contract">Microsoft Standard Contract</a>.</p>
-    <p>These are approved launch terms, not a claim that checkout is live. When Threadseer becomes publicly available, this page will identify the exact Marketplace offer, purchase path, assignment guidance, and effective plan terms. Watch <a href="../release-notes/">Release Notes</a> for verified availability.</p>
+    <p>When a live offer is verified, this page will link to the Marketplace listing and provide purchase and license-assignment instructions. Until then, check <a href="../release-notes/">Release Status</a> for confirmed availability.</p>
+
+    <details>
+      <summary>For Power BI administrators: how Professional licensing works</summary>
+      <div class="details-body">
+        <ol class="checklist">
+          <li>Customers purchase Professional through Microsoft Marketplace after the offer becomes available.</li>
+          <li>An administrator assigns the Professional plan using Microsoft's licensing tools.</li>
+          <li>Power BI tells Threadseer whether the current user has an assigned Professional plan. Threadseer does not receive or retain the underlying Microsoft plan identifier.</li>
+          <li>If Power BI cannot confirm Professional access, Threadseer continues with Community limits.</li>
+        </ol>
+        <p>Threadseer does not operate a separate licensing server, create customer accounts, or send report or process data as part of licensing. Microsoft manages purchasing, assignment, and license status. See Microsoft's <a href="https://learn.microsoft.com/en-us/power-bi/developer/visuals/licensing-api">licensing guidance</a>.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Power BI environments with Professional licensing limits</summary>
+      <div class="details-body">
+        <p>Microsoft currently does not support licensed custom-visual plans in every Power BI environment. Professional licensing is unsupported in:</p>
+        <ul class="checklist">
+          <li>Publish to web and PaaS embedded scenarios;</li>
+          <li>national or regional clouds where Marketplace purchasing is unavailable;</li>
+          <li>Power BI Report Server; and</li>
+          <li>REST API PDF or PowerPoint export.</li>
+        </ul>
+        <p>Community may still work where the visual itself is supported, but this does not guarantee interactive analysis, rendering, export, or Marketplace availability in every environment. Review Microsoft's current <a href="https://learn.microsoft.com/en-us/power-bi/developer/visuals/custom-visual-licenses">Power BI visual licensing limitations</a>.</p>
+      </div>
+    </details>
   </div></main>
-  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="../getting-started/">Getting started</a> &middot; <a href="./">Plans &amp; licensing</a> &middot; <a href="../release-notes/">Release notes</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="../getting-started/">Getting started</a> &middot; <a href="./">Pricing</a> &middot; <a href="../support/">Get help</a> &middot; <a href="../release-notes/">Release status</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
 </body>
 </html>

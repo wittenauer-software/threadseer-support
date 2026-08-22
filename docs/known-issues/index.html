@@ -3,41 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Confirmed Threadseer defects, current product limits, version scope, and reporting guidance.">
-  <title>Known Issues and Product Limits | Threadseer</title>
-  <link rel="stylesheet" href="../assets/styles.css?v=20260809-docs-launch">
+  <meta name="description" content="Check confirmed Threadseer issues, data limits, Power BI environment boundaries, and reporting guidance.">
+  <title>Known Issues and Limits | Threadseer</title>
+  <link rel="stylesheet" href="../assets/styles.css?v=20260822-business-copy">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="../getting-started/">Getting started</a><a href="../licensing/">Plans</a><a href="../support/">Support</a><a href="./" aria-current="page">Known issues</a><a href="../release-notes/">Release notes</a></div></nav></header>
+  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="../getting-started/">Getting started</a><a href="../licensing/">Pricing</a><a href="../support/">Get help</a><a href="./" aria-current="page">Known issues</a><a href="../release-notes/">Release status</a></div></nav></header>
   <main id="main" class="page"><div class="content">
-    <div class="eyebrow">Product status</div><h1>Known issues and product limits</h1>
-    <p class="lede">Confirmed defects and intentional operating limits are tracked separately so you can tell a reproducible bug from a documented boundary.</p>
-    <p class="meta"><strong>Version scope:</strong> Threadseer 0.1.0.110 pre-submission build &middot; <strong>Last reviewed:</strong> August 21, 2026</p>
+    <div class="eyebrow">Product status</div><h1>Known issues and limits</h1>
+    <p class="lede">Check whether a problem is a confirmed bug, a documented data limit, or a Power BI environment restriction.</p>
+    <p class="meta"><strong>Version scope:</strong> Threadseer 0.1.0.110 pre-submission build &middot; <strong>Last reviewed:</strong> August 22, 2026</p>
 
     <h2>Known issues</h2>
-    <p>The public GitHub tracker is the source of truth for confirmed current defects. Reports carrying the <em>known issue</em> label have been accepted as reproducible product issues; an empty result means no open issue currently carries that label.</p>
+    <p>The public GitHub tracker lists confirmed current bugs with the <em>known issue</em> label. If the filtered list is empty, there are no confirmed open issues with that label.</p>
     <div class="actions"><a class="button" href="https://github.com/wittenauer-software/threadseer-support/issues?q=is%3Aissue+is%3Aopen+label%3A%22known+issue%22">View open known issues</a><a class="button secondary" href="https://github.com/wittenauer-software/threadseer-support/issues">Browse all issues</a></div>
 
     <h2>Product limits</h2>
-    <ul class="checklist">
-      <li>Community supports up to 25,000 input events per explicit analysis.</li>
-      <li>Professional has a measured 100,000-event baseline. Adaptive Scale may attempt larger complete selections when local Power BI resources permit, up to an absolute 1,000,000-event ceiling.</li>
-      <li>Capacity above the Professional baseline is not guaranteed and varies with data shape, memory, Power BI, WebView2, and device resources.</li>
-      <li>Threadseer never mines an incomplete prefix after resource admission or the Power BI host stops loading data.</li>
-      <li>The process map applies density limits to keep the workspace usable; narrow report filters when activity or transition cardinality is extreme.</li>
-      <li>The Cases view projects at most 200 matching cases, and a selected case timeline projects at most 500 events.</li>
-      <li>Changed fields or Power BI filters can make the current snapshot stale. The prior snapshot remains visible until you deliberately Analyze the new selection.</li>
-    </ul>
+    <div class="grid limits-grid">
+      <article class="card"><h3>Data size</h3><ul class="checklist"><li>Community supports up to 25,000 event rows in each analysis.</li><li>Professional has a supported baseline of 100,000 event rows.</li><li>Professional may attempt complete datasets above 100,000 rows, up to 1,000,000, when Power BI and device resources permit. Larger analyses are not guaranteed.</li><li>If Power BI cannot load the full filtered dataset, Threadseer stops instead of analyzing partial data.</li></ul></article>
+      <article class="card"><h3>Process map</h3><p>Very large numbers of activities or connections can make a process map difficult to read. Threadseer applies display limits to keep the workspace usable. Narrow the Power BI filters when the map is too dense.</p></article>
+      <article class="card"><h3>Case details</h3><p>The Cases view displays up to 200 matching cases at a time. A selected case timeline displays up to 500 events. Use search or another view to narrow a large group.</p></article>
+      <article class="card"><h3>Filters and refreshed results</h3><p>Changing a mapped field or Power BI filter marks the current results as needing a refresh. Threadseer keeps the previous results visible until you deliberately choose <strong>Analyze new selection</strong>.</p></article>
+    </div>
 
     <h2>Supported Power BI environments</h2>
-    <p>The current pre-submission build is validated locally in Power BI Desktop and the packaged host. Power BI service validation remains a separate external gate. The exact Threadseer version and Microsoft host-version requirements for a public release will be recorded in Release Notes. Embedded, national or regional cloud, Report Server, and export scenarios have additional licensing or host limits and must not be assumed equivalent.</p>
+    <p>The current pre-submission build has been validated locally in Power BI Desktop and in the packaged test environment. Power BI Service validation is still pending. The exact Threadseer and Power BI versions supported at public launch will be listed in <a href="../release-notes/">Release Status</a>.</p>
+    <p>Embedded reports, national or regional clouds, Power BI Report Server, and export features have additional Power BI or licensing limits. Do not assume they behave the same as Power BI Desktop or Service.</p>
 
     <h2>Licensing limits</h2>
-    <p>Professional is not publicly available and no Marketplace submission has been made. Microsoft licensing is unsupported in several embedded, national/regional cloud, Report Server, and REST export environments. See <a href="../licensing/">Plans &amp; Licensing</a> for the current boundary.</p>
+    <p>Professional is not publicly available, and Threadseer has not been submitted to Microsoft Marketplace. Microsoft does not support licensed custom-visual plans in every Power BI environment. See <a href="../licensing/">Plans &amp; Pricing</a> for the current list.</p>
 
-    <h2>Before reporting a problem</h2><p>Follow the <a href="../support/">support checklist</a> and reproduce the behavior with synthetic data. Do not attach operational, confidential, or personal data to a public issue.</p>
+    <h2>Before reporting a problem</h2><p>Try the <a href="../support/">quick troubleshooting steps</a> and reproduce the behavior with synthetic data. GitHub issues are public, so do not attach operational, customer, confidential, account, or personal information.</p>
   </div></main>
-  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="../getting-started/">Getting started</a> &middot; <a href="../licensing/">Plans &amp; licensing</a> &middot; <a href="../release-notes/">Release notes</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="../getting-started/">Getting started</a> &middot; <a href="../licensing/">Pricing</a> &middot; <a href="../support/">Get help</a> &middot; <a href="../release-notes/">Release status</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
 </body>
 </html>

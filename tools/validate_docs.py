@@ -29,6 +29,7 @@ REQUIRED_VIEWS = (
     "Process Map",
     "Variants",
     "Compare",
+    "Conformance",
     "Drivers",
     "Bottlenecks",
     "Rework",

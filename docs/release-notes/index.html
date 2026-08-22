@@ -15,14 +15,25 @@
     <h1>Release Notes</h1>
     <p class="lede">Verified public changes to Threadseer will be recorded here by version and release date.</p>
 
-    <div class="notice warning"><strong>No Marketplace submission has been made.</strong> Threadseer 0.1.0.100 is a local pre-submission validation build, not a public Marketplace release, and there is no verified download or purchase link to publish.</div>
+    <div class="notice warning"><strong>No Marketplace submission has been made.</strong> Threadseer 0.1.0.110 is a local pre-submission validation build, not a public Marketplace release, and there is no verified download or purchase link to publish.</div>
 
     <h2>0.1.x validation series</h2>
-    <p class="meta"><strong>Public release date:</strong> Not released &middot; <strong>Last reviewed:</strong> August 18, 2026</p>
+    <p class="meta"><strong>Public release date:</strong> Not released &middot; <strong>Last reviewed:</strong> August 21, 2026</p>
     <h3>Available in the current pre-submission build</h3>
     <ul class="checklist">
       <li>Explicit Analyze and Reanalyze snapshot lifecycle.</li>
-      <li>Process discovery across Process Map, Variants, Compare, Drivers, Bottlenecks, Rework, Improve, Cases, and Data Quality.</li>
+      <li>Process discovery across Process Map, Variants, Compare, Conformance, Drivers, Bottlenecks, Rework, Improve, Cases, and Data Quality.</li>
+      <li>Conformance Analysis using Accepted observed paths, one explicit Primary path, exact full-sequence scoring, deviation explanations, and case and Driver Analysis handoffs.</li>
+      <li>A consolidated Conformance process map with a compact path selector, six summary cards, deviation overlay switch, and route legend. Colors share the main-map meaning for primary flow, shortcuts, repetition, and activity categories while using distinct green, magenta, and amber encodings for accepted-only, unexpected, and deviation evidence.</li>
+      <li>The Conformance map now shares the Process Map's visible zoom, zoom-out, and Fit controls plus mouse-wheel zoom, drag-pan, and keyboard movement. Compact graph geometry and route-attached deviation badges keep the unified view readable.</li>
+      <li>Conformance now carries forward the Process Map's hardened drawing layer: visible card bounds match route ports, thin transitions have wider interaction targets, hover traces and selected-state emphasis are shared, and clicking the graph background clears the selection.</li>
+      <li>Conformance activity cards show median activity time and relative case volume. The associated median value KPI is numeric in both editions when usable mapped values exist and otherwise distinguishes an unusable mapping from an unmapped field.</li>
+      <li>Community and Professional now provide identical mapped fields, metrics, controls, projection limits, and analytical results for selections within the 25,000-row Community limit. Professional primarily unlocks higher analysis capacity and Adaptive Scale.</li>
+      <li>Conformance expected-path changes now ignore matching Power BI property replays instead of restarting segmented loading. Equal-distance path matching and aggregated deviation evidence are deterministic and cohort-wide.</li>
+      <li>Rapid Accepted and Primary changes are serialized and coalesced so host property echoes cannot restore an overtaken definition. Accepted paths not observed in the current snapshot remain visible as manageable zero-case rows, and repeated Conformance actions identify their path or deviation to assistive technology.</li>
+      <li>Independent development validation compares exact-path membership, all summary KPIs, and every deviation pattern against PM4Py and pandas. Those Python packages are validation-only and are not shipped with or required by Threadseer.</li>
+      <li>The checked-in Power BI sample opens Conformance with the dominant path Primary and Medical Review accepted, making the Primary-versus-Accepted distinction immediately visible.</li>
+      <li>Power BI Desktop validation fixes for Conformance pagination and sample-canvas height so all expected paths, deviation rows, and investigation actions remain reachable.</li>
       <li>Driver Analysis for transparent investigation of where queue wait, processing time, or rework is concentrated, with case-level traceability and explicit association-not-causation guidance.</li>
       <li>Side-by-side variant comparison plus bounded workflow-regularity, resource/handoff, and shortcut evidence in Compare and Improve.</li>
       <li>Case-level traceability, Power BI interactions, quality disclosure, cancellation, and stale-snapshot handling.</li>

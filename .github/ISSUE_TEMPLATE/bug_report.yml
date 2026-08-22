@@ -14,7 +14,7 @@ body:
     attributes:
       label: Threadseer version
       description: Use the PBIVIZ filename or the Marketplace/version details supplied with the visual. Threadseer does not currently expose an in-visual About page.
-      placeholder: 0.1.0.98
+      placeholder: 0.1.0.110 (from the PBIVIZ filename)
     validations:
       required: true
   - type: dropdown
@@ -31,7 +31,8 @@ body:
     id: power_bi_version
     attributes:
       label: Power BI version
-      placeholder: Desktop month/year or Service
+      description: Use the version shown by Power BI Desktop, or enter Power BI Service and the date you observed the problem.
+      placeholder: Desktop 2.x.x or Power BI Service, August 2026
     validations:
       required: true
   - type: textarea
@@ -62,7 +63,7 @@ body:
     attributes:
       label: Privacy confirmation
       options:
-        - label: I removed confidential, personal, customer, tenant, credential, and proprietary information from this report.
+        - label: I removed confidential, personal, customer, tenant, credential, and proprietary information from this issue and any attachments.
           required: true
         - label: I can reproduce this with synthetic data, or I explained why no sample is attached.
           required: true

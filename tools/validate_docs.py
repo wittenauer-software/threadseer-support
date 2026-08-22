@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree import ElementTree
@@ -40,6 +41,12 @@ REQUIRED_VIEWS = (
 failures: list[str] = []
 release_status = json.loads((DOCS / "release-status.json").read_text(encoding="utf-8"))
 current_version = release_status.get("version")
+last_reviewed = release_status.get("lastReviewed")
+try:
+    reviewed_date = date.fromisoformat(last_reviewed)
+    reviewed_label = f"{reviewed_date.strftime('%B')} {reviewed_date.day}, {reviewed_date.year}"
+except (TypeError, ValueError):
+    reviewed_label = None
 
 
 def require(condition: bool, message: str) -> None:
@@ -54,6 +61,14 @@ def page_path(slug: str) -> Path:
 html_files = sorted(DOCS.rglob("*.html"))
 for slug in REQUIRED_PAGES:
     require(page_path(slug).is_file(), f"Missing required page: {slug or '/'}")
+
+for slug in REQUIRED_PAGES:
+    content = page_path(slug).read_text(encoding="utf-8")
+    for navigation_label in ("Pricing", "Get help", "Release status"):
+        require(
+            navigation_label in content,
+            f"{slug or '/'} is missing the customer navigation label: {navigation_label}",
+        )
 
 for html_file in html_files:
     content = html_file.read_text(encoding="utf-8")
@@ -106,6 +121,7 @@ require(
     "release-status.json must identify a four-part numeric version",
 )
 require(release_status.get("status") == "pre-submission", "release-status.json must preserve the pre-submission status")
+require(reviewed_label is not None, "release-status.json must identify a valid lastReviewed date")
 for view in REQUIRED_VIEWS:
     require(view in getting_started, f"Getting Started is missing the {view} view")
 require("Event / Row ID" in getting_started, "Getting Started is missing Event / Row ID guidance")
@@ -116,13 +132,19 @@ require(
     "Release Notes must state the current not-submitted status",
 )
 require("not a public Marketplace release" in release_notes, "Release Notes must prohibit premature availability claims")
-for required_decision in (
+for required_status in (
     "United States",
-    "US$20 per assigned user per month",
-    "US$200 per assigned user per year",
-    "certification is deferred until after Marketplace launch",
+    "Marketplace submission</strong><span>Not submitted",
+    "Public availability</strong><span>Not available",
+    "Public purchase</strong><span>Not available",
+    "Power BI certification</strong><span>Deferred until after launch",
 ):
-    require(required_decision in release_notes, f"Release Notes are missing launch decision: {required_decision}")
+    require(required_status in release_notes, f"Release Status is missing current state: {required_status}")
+require(
+    "US$20 per assigned user per month" not in release_notes
+    and "US$200 per assigned user per year" not in release_notes,
+    "Release Status must link to Pricing instead of duplicating plan prices",
+)
 
 licensing = page_path("licensing").read_text(encoding="utf-8")
 for required_term in (
@@ -151,6 +173,10 @@ for name, content in (
         f"Threadseer {current_version}" in content,
         f"{name} must identify release-status.json version {current_version}",
     )
+    require(
+        reviewed_label is not None and reviewed_label in content,
+        f"{name} must identify release-status.json review date {reviewed_label}",
+    )
 
 support = page_path("support").read_text(encoding="utf-8")
 require(
@@ -171,6 +197,14 @@ require(
 bug_form = (ROOT / ".github" / "ISSUE_TEMPLATE" / "bug_report.yml").read_text(encoding="utf-8")
 require("About information" not in bug_form, "Bug form must not claim an in-visual About page exists")
 require("PBIVIZ filename" in bug_form, "Bug form must explain how to identify the version")
+require(
+    isinstance(current_version, str) and current_version in bug_form,
+    "Bug form version example must match release-status.json",
+)
+require(
+    "this issue and any attachments" in bug_form,
+    "Bug form privacy confirmation must describe the public issue rather than a report",
+)
 
 all_public_text = "\n".join(path.read_text(encoding="utf-8") for path in html_files)
 for obsolete in (
@@ -179,6 +213,30 @@ for obsolete in (
     "Current Threadseer 0.1.x validation builds",
 ):
     require(obsolete not in all_public_text, f"Public pages contain obsolete status copy: {obsolete}")
+
+for internal_term in (
+    "publisher-controlled services",
+    "explicit analysis scale",
+    "admitted capacity",
+    "service-plan state",
+    "transactability",
+    "incomplete loaded prefix",
+    "contributing-case cohort",
+    "Power BI property replays",
+    "serialized and coalesced",
+):
+    require(
+        internal_term not in all_public_text,
+        f"Public pages contain implementation-first language: {internal_term}",
+    )
+
+homepage = page_path("").read_text(encoding="utf-8")
+for customer_message in (
+    "See how work really flows",
+    "Your data stays in Power BI",
+    "common paths, delays, rework, and individual cases",
+):
+    require(customer_message in homepage, f"Homepage is missing customer message: {customer_message}")
 
 require((ROOT / "CONTRIBUTING.md").is_file(), "CONTRIBUTING.md is missing")
 require((ROOT / "SECURITY.md").is_file(), "SECURITY.md is missing")

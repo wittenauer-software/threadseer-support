@@ -3,97 +3,88 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Learn how to prepare event data, configure Threadseer, analyze a Power BI selection, and interpret the main process-mining views.">
+  <meta name="description" content="Add Threadseer to Power BI, map three required fields, analyze your data, and choose the right view for your question.">
   <title>Getting Started | Threadseer</title>
-  <link rel="stylesheet" href="../assets/styles.css?v=20260809-docs-launch">
+  <link rel="stylesheet" href="../assets/styles.css?v=20260822-business-copy">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="./" aria-current="page">Getting started</a><a href="../licensing/">Plans</a><a href="../support/">Support</a><a href="../known-issues/">Known issues</a><a href="../release-notes/">Release notes</a></div></nav></header>
+  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="./" aria-current="page">Getting started</a><a href="../licensing/">Pricing</a><a href="../support/">Get help</a><a href="../known-issues/">Known issues</a><a href="../release-notes/">Release status</a></div></nav></header>
   <main id="main" class="page"><div class="content">
-    <div class="eyebrow">Documentation</div>
+    <div class="eyebrow">Quick-start guide</div>
     <h1>Getting started with Threadseer</h1>
-    <p class="lede">Turn an event-level Power BI table into an interactive process snapshot without sending report or process data to the publisher or publisher-controlled services.</p>
-    <p class="meta"><strong>Version scope:</strong> Threadseer 0.1.0.110 pre-submission build &middot; <strong>Last reviewed:</strong> August 21, 2026</p>
+    <p class="lede">Add one visual, map three fields, and see the paths your work actually follows. Your report and process data stay in Power BI and are not sent to us.</p>
+    <p class="meta"><strong>Version scope:</strong> Threadseer 0.1.0.110 pre-submission build &middot; <strong>Last reviewed:</strong> August 22, 2026</p>
+    <div class="notice warning"><strong>Release status:</strong> Threadseer has not been submitted to Microsoft Marketplace and is not yet available to install publicly. This guide applies to the current private pre-submission build.</div>
 
-    <h2>What Threadseer does</h2>
-    <p>Threadseer is a self-contained Power BI custom visual for process discovery and investigation. It groups events into cases, orders each case by time, discovers the paths those cases follow, and keeps the resulting analysis inside the Power BI visual environment.</p>
-    <p>Threadseer does not require a backend, a Threadseer account, Python, or a separate preprocessing application. Power Query can still be useful when source data needs reshaping before it reaches the visual.</p>
+    <h2>Start in three steps</h2>
+    <div class="grid steps-grid">
+      <article class="card"><div class="step-number" aria-hidden="true">1</div><h3>Add Threadseer</h3><p>Open your report in a supported Power BI authoring environment and add Threadseer to the report canvas from the Visualizations pane using the distribution provided to you.</p></article>
+      <article class="card"><div class="step-number" aria-hidden="true">2</div><h3>Map three fields</h3><p>Add Case ID, Activity, and Timestamp. Apply any Power BI filters that should define the data you want to analyze.</p></article>
+      <article class="card"><div class="step-number" aria-hidden="true">3</div><h3>Choose Analyze</h3><p>Select <strong>Analyze this selection</strong>. Threadseer loads the complete filtered dataset, builds the process, and opens the workspace.</p></article>
+    </div>
+    <p>Threadseer does not require a separate platform, Threadseer account, Python runtime, or preprocessing application. Power Query is optional when your source data needs reshaping.</p>
 
-    <h2>Add Threadseer to a report</h2>
-    <ol class="checklist">
-      <li>Open the report in a supported Power BI authoring environment.</li>
-      <li>Add Threadseer to the report canvas from the Visualizations pane using the distribution made available to you.</li>
-      <li>Resize the visual so the setup guidance and workspace navigation are visible.</li>
-      <li>Assign the required event fields, then apply any Power BI filters that should define the initial analysis population.</li>
-    </ol>
-    <div class="notice warning"><strong>No Marketplace submission has been made.</strong> Threadseer is not publicly available. Installation, purchase, and assignment instructions will be added only after a future submission, approval, and go-live are confirmed.</div>
-
-    <h2>Prepare the event data</h2>
-    <p>Each source row should represent one event. Column names do not need to match Threadseer's role names; map the columns that carry the corresponding meaning.</p>
-    <div class="table-wrap"><table>
+    <h2>What your data needs</h2>
+    <p>Each row should represent one event in a case, such as an order update, ticket status, or claim step. Your column names can be different from Threadseer's field names.</p>
+    <div class="table-wrap" role="region" aria-label="Required Threadseer fields" tabindex="0"><table>
       <thead><tr><th>Required field</th><th>Purpose</th><th>Example</th></tr></thead>
       <tbody>
-        <tr><td><strong>Case ID</strong></td><td>Groups events that belong to the same process instance.</td><td>Order ID, Ticket Number</td></tr>
-        <tr><td><strong>Activity</strong></td><td>Names the step performed at each event.</td><td>Approved, Shipped</td></tr>
-        <tr><td><strong>Timestamp</strong></td><td>Orders events within each case.</td><td>Status Changed At</td></tr>
+        <tr><td><strong>Case ID</strong></td><td>Connects events that belong to the same order, ticket, claim, or other case.</td><td>Order ID, Ticket Number</td></tr>
+        <tr><td><strong>Activity</strong></td><td>Names the step that happened.</td><td>Approved, Shipped</td></tr>
+        <tr><td><strong>Timestamp</strong></td><td>Places the events in time order.</td><td>Status Changed At</td></tr>
       </tbody>
     </table></div>
-    <p>If milestones are stored as separate date columns, unpivot them in Power Query so each event becomes a row. Use precise timestamps when order matters. When events in one case share a timestamp, Threadseer applies a deterministic source-row tie-breaker and reports the condition in Data Quality.</p>
+    <p>If your milestones are stored in separate date columns, use Power Query to unpivot them so each milestone becomes a row. Use precise timestamps when sequence matters. When events share the same timestamp, Threadseer uses their source-row order and reports the condition in Data Quality.</p>
 
-    <h2>Optional field mappings</h2>
-    <div class="table-wrap"><table>
-      <thead><tr><th>Optional field</th><th>What it adds</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Activity Category</strong></td><td>Category labels and colors for activities on the process map.</td></tr>
-        <tr><td><strong>End Timestamp</strong></td><td>Processing-time and queue-wait evidence. Without it, Threadseer does not label start-to-start time as either bottleneck type.</td></tr>
-        <tr><td><strong>Event / Row ID</strong></td><td>Preserves an individual source-row identity for Power BI interactions when one is available. It does not change process calculations.</td></tr>
-        <tr><td><strong>Resource</strong></td><td>Resource context for investigation; it is not presented as utilization or capacity proof.</td></tr>
-        <tr><td><strong>Outcome</strong></td><td>Outcome-rate comparisons in both editions.</td></tr>
-        <tr><td><strong>Value or Cost</strong></td><td>Value and cost summaries in both editions.</td></tr>
-        <tr><td><strong>Additional Dimensions</strong></td><td>Bounded cohort context from up to three mapped dimensions in both editions.</td></tr>
-      </tbody>
-    </table></div>
+    <details>
+      <summary>Optional fields and what they add</summary>
+      <div class="details-body table-wrap" role="region" aria-label="Optional Threadseer fields" tabindex="0"><table>
+        <thead><tr><th>Optional field</th><th>What it adds</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Activity Category</strong></td><td>Category labels and colors on the process map.</td></tr>
+          <tr><td><strong>End Timestamp</strong></td><td>Separate processing-time and queue-wait measures. Without it, Threadseer does not guess which kind of delay occurred.</td></tr>
+          <tr><td><strong>Event / Row ID</strong></td><td>A direct connection to an individual Power BI source row when one is available. It does not change the calculations.</td></tr>
+          <tr><td><strong>Resource</strong></td><td>People, teams, or other resource context for investigation. It is not proof of utilization or capacity.</td></tr>
+          <tr><td><strong>Outcome</strong></td><td>Outcome-rate comparisons.</td></tr>
+          <tr><td><strong>Value or Cost</strong></td><td>Value and cost summaries.</td></tr>
+          <tr><td><strong>Additional Dimensions</strong></td><td>Comparisons using up to three extra business fields, such as location, product, or priority.</td></tr>
+        </tbody>
+      </table></div>
+    </details>
 
-    <h2>Analyze the current selection</h2>
-    <ol class="checklist">
-      <li>Confirm the required fields are mapped and review any data-quality guidance.</li>
-      <li>Apply Power BI report, page, or visual filters that should define the source population.</li>
-      <li>Select <strong>Analyze this selection</strong>.</li>
-      <li>Wait for the complete selection to load and the analysis to finish. Threadseer never mines an incomplete loaded prefix.</li>
-    </ol>
-    <p>Analysis is deliberate. Power BI updates, resizing, formatting changes, and navigation between Threadseer views do not silently start mining.</p>
+    <h2>When your filters change</h2>
+    <p>Threadseer analyzes only when you choose <strong>Analyze</strong> or <strong>Reanalyze</strong>. Resizing the visual, changing formatting, or moving between views does not start a new analysis.</p>
+    <p>After you change a mapped field or Power BI filter, Threadseer keeps the previous results visible and tells you they need refreshing. Choose <strong>Analyze new selection</strong> when you are ready to replace them. Selections you make inside Threadseer narrow the current results without rebuilding the full analysis.</p>
+    <p>If Power BI cannot load the entire filtered dataset, Threadseer stops instead of analyzing partial data.</p>
 
-    <h2>Filters, stale snapshots, and Reanalyze</h2>
-    <p>Power BI filters define the proposed input population before analysis. After a snapshot exists, changing mapped fields or filters marks that snapshot stale but leaves the prior results visible for comparison and continuity.</p>
-    <p>Review the stale notice, then select <strong>Analyze new selection</strong> to replace the snapshot deliberately. Internal selections within Threadseer coordinate a contributing-case cohort across the workspace without rebuilding the source snapshot.</p>
-
-    <h2>Read the workspace</h2>
-    <div class="grid">
-      <article class="card"><h3>Process Map</h3><p>Shows activities and observed paths. Edge styling distinguishes ordinary flow, bottleneck evidence, rework returns, shortcuts, and self-loops without turning those signals into causal claims.</p></article>
-      <article class="card"><h3>Variants</h3><p>Ranks the distinct ordered activity sequences followed by cases and shows their volume, coverage, timing, and available outcome or value context.</p></article>
-      <article class="card"><h3>Compare</h3><p>Places two exact observed variants side by side. Differences are descriptive associations from the current snapshot, not causal findings.</p></article>
-      <article class="card"><h3>Conformance</h3><p>Lets you mark observed paths as Accepted and choose one accepted path as Primary. A unified route map emphasizes the Primary path in blue, accepted-only flow in green, and separately labelled shortcut, repetition, unexpected-path, and deviation evidence. Activity cards show cases, median activity time when End Timestamp is usable, and relative case volume. Use the visible zoom, zoom-out, and Fit controls, the mouse wheel, pointer drag, or keyboard movement to inspect the map. A case conforms only when its full activity sequence exactly matches an Accepted path; Primary changes emphasis, not scoring. An Accepted path retained from another filter context remains manageable as a zero-case row and is not drawn until the current snapshot observes it. Deviation details remain traceable to contributing cases and Driver Analysis.</p></article>
-      <article class="card"><h3>Drivers</h3><p>Investigates where queue wait, processing time, or rework is concentrated across supplied dimensions and observed process context. Findings are transparent associations for investigation, not causal proof.</p></article>
-      <article class="card"><h3>Bottlenecks</h3><p>Summarizes snapshot-relative processing and queue evidence. Valid End Timestamp observations are required for those duration categories.</p></article>
-      <article class="card"><h3>Rework</h3><p>Shows repeated activities, return loops, their frequency, and the cases that contribute to them.</p></article>
-      <article class="card"><h3>Improve</h3><p>Explores workflow regularity, supplied resource and handoff evidence, and observed shortcuts. It does not make automation, staffing, capacity, compliance, or return-on-investment recommendations.</p></article>
-      <article class="card"><h3>Cases</h3><p>Traces results back to matching cases and a selected case timeline. Use search or another view to narrow large cohorts.</p></article>
-      <article class="card"><h3>Data Quality</h3><p>Explains excluded, normalized, and retained input conditions so corrections are visible rather than silently changing process meaning.</p></article>
+    <h2 id="workspace">Choose a view for your question</h2>
+    <div class="grid workspace-grid">
+      <article class="card"><h3>See the process</h3><p><strong>Process Map</strong> shows the activities and paths cases follow. <strong>Variants</strong> ranks the most common routes. <strong>Compare</strong> places two observed routes side by side. <strong>Conformance</strong> compares complete case routes with paths you mark as Accepted.</p></article>
+      <article class="card"><h3>Find delays and rework</h3><p><strong>Drivers</strong> shows where queue wait, processing time, or rework is concentrated. <strong>Bottlenecks</strong> summarizes delay evidence. <strong>Rework</strong> finds repeated steps and return loops. <strong>Improve</strong> explores regularity, handoffs, resources, and shortcuts without making causal, staffing, compliance, or return-on-investment claims.</p></article>
+      <article class="card"><h3>Investigate the evidence</h3><p><strong>Cases</strong> traces results back to matching cases and a selected timeline. <strong>Data Quality</strong> explains excluded, normalized, and retained input conditions so data problems remain visible.</p></article>
     </div>
 
-    <h2>Performance guidance</h2>
-    <ul class="checklist">
-      <li>Start with a representative filtered population, especially when activity, variant, dimension, or case cardinality is high.</li>
-      <li>Community accepts up to 25,000 input events per explicit analysis.</li>
-      <li>Professional has a measured 100,000-event baseline; larger Adaptive Scale attempts depend on local Power BI, WebView2, memory, device, and data-shape resources.</li>
-      <li>If loading or analysis stops with resource guidance, narrow the Power BI filters and Analyze again.</li>
-      <li>Capacity is not a universal latency or memory guarantee. See <a href="../licensing/">Plans &amp; Licensing</a> and <a href="../known-issues/">product limits</a>.</li>
-    </ul>
+    <details>
+      <summary>How Conformance works</summary>
+      <div class="details-body">
+        <p>Mark observed paths as <strong>Accepted</strong> and choose one accepted path as <strong>Primary</strong>. A case conforms only when its complete activity sequence exactly matches an Accepted path. Primary changes the visual emphasis; it does not change the score.</p>
+        <p>The map distinguishes Primary, accepted-only, shortcut, repetition, unexpected-path, and deviation evidence. You can zoom, fit, pan, and use the keyboard to inspect it. Paths saved from another filter context remain manageable even when the current data contains no matching cases. Deviation details link back to contributing cases and Driver Analysis.</p>
+      </div>
+    </details>
 
-    <div class="notice"><strong>Privacy boundary.</strong> Threadseer declares no external network privileges and does not transmit customer event data, field names, report names, case identifiers, or process metrics to the publisher.</div>
-    <div class="actions"><a class="button" href="../support/">Get support</a><a class="button secondary" href="../known-issues/">Review known issues</a></div>
+    <h2>Working with larger datasets</h2>
+    <ul class="checklist">
+      <li>Start with a representative filtered dataset, especially when it contains many different activities, routes, dimensions, or cases.</li>
+      <li>Community accepts up to 25,000 event rows in each analysis.</li>
+      <li>Professional has a supported baseline of 100,000 event rows. Larger attempts depend on Power BI, WebView2, available memory, the device, and the shape of the data.</li>
+      <li>If Threadseer stops with resource guidance, narrow the Power BI filters and choose Analyze again.</li>
+    </ul>
+    <p>See <a href="../licensing/">Plans &amp; Pricing</a> and <a href="../known-issues/">Known Issues and Limits</a> for the complete boundaries.</p>
+
+    <div class="notice"><strong>Your data stays in Power BI.</strong> Threadseer has no external network permission and does not send event data, field names, report names, case identifiers, or process metrics to Wittenauer Software.</div>
+    <div class="actions"><a class="button" href="../support/">Get help</a><a class="button secondary" href="../known-issues/">Review known issues</a></div>
   </div></main>
-  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="./">Getting started</a> &middot; <a href="../licensing/">Plans &amp; licensing</a> &middot; <a href="../release-notes/">Release notes</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="./">Getting started</a> &middot; <a href="../licensing/">Pricing</a> &middot; <a href="../support/">Get help</a> &middot; <a href="../release-notes/">Release status</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
 </body>
 </html>

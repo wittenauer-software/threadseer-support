@@ -3,27 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Support and troubleshooting guidance for Threadseer for Power BI.">
-  <title>Support | Threadseer</title>
-  <link rel="stylesheet" href="../assets/styles.css?v=20260809-docs-launch">
+  <meta name="description" content="Get help with Threadseer, try quick troubleshooting steps, report a bug, or suggest an improvement.">
+  <title>Get Help | Threadseer</title>
+  <link rel="stylesheet" href="../assets/styles.css?v=20260822-business-copy">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="../getting-started/">Getting started</a><a href="../licensing/">Plans</a><a href="./" aria-current="page">Support</a><a href="../known-issues/">Known issues</a><a href="../release-notes/">Release notes</a></div></nav></header>
+  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="../getting-started/">Getting started</a><a href="../licensing/">Pricing</a><a href="./" aria-current="page">Get help</a><a href="../known-issues/">Known issues</a><a href="../release-notes/">Release status</a></div></nav></header>
   <main id="main" class="page"><div class="content">
-    <div class="eyebrow">Help center</div><h1>Support</h1>
-    <p class="lede">Start with the <a href="../getting-started/">Getting Started guide</a>, then use the public issue tracker for reproducible product defects, documentation problems, accessibility problems, and feature requests.</p>
-    <div class="notice warning"><strong>Keep operational data private.</strong> Do not upload employer event logs, report files, screenshots with case identifiers, tenant details, credentials, or proprietary field names. Build a synthetic reproduction instead.</div>
-    <h2>Before opening an issue</h2>
-    <ol class="checklist"><li>Confirm Case ID, Activity, and Timestamp are mapped to the intended columns.</li><li>Check that timestamps have a consistent data type and valid values.</li><li>Press Analyze or Reanalyze after changing the mapped data or filters.</li><li>Try the same steps in a blank report with a small synthetic dataset.</li><li>Review the <a href="../known-issues/">known issues and product limits</a>.</li></ol>
-    <h2>Include in a bug report</h2>
-    <ul class="checklist"><li>Threadseer version from the PBIVIZ filename or, after public release, the Marketplace/version details supplied with the visual. Threadseer does not currently expose an in-visual About page.</li><li>Power BI Desktop, Service, or embedded environment and its version.</li><li>Exact reproduction steps using synthetic field names and data.</li><li>Expected and actual result.</li><li>Whether the problem also occurs in a blank report.</li></ul>
+    <div class="eyebrow">Help center</div><h1>Get help with Threadseer</h1>
+    <p class="lede">Try a few quick checks, review known issues, or tell us what happened using a safe synthetic example.</p>
+    <div class="grid support-options">
+      <article class="card"><h2>Troubleshoot a problem</h2><p>Start with the quick checks below and the <a href="../getting-started/">Getting Started guide</a>.</p></article>
+      <article class="card"><h2>Report a bug</h2><p>Use the public bug form for behavior you can reproduce without sharing real operational data.</p><p><a href="https://github.com/wittenauer-software/threadseer-support/issues/new?template=bug_report.yml">Open the bug form &rarr;</a></p></article>
+      <article class="card"><h2>Suggest an improvement</h2><p>Describe what you are trying to accomplish and what a better outcome would look like.</p><p><a href="https://github.com/wittenauer-software/threadseer-support/issues/new?template=feature_request.yml">Request a feature &rarr;</a></p></article>
+    </div>
+    <div class="notice warning"><strong>Before you share anything:</strong> GitHub issues are public. Do not upload real event logs, Power BI report files, screenshots with case identifiers, tenant details, personal information, credentials, or proprietary field names. Use a blank report and synthetic data.</div>
+
+    <h2>Quick troubleshooting</h2>
+    <ol class="checklist"><li>Confirm that Case ID, Activity, and Timestamp point to the intended columns.</li><li>Check that timestamps use a consistent data type and contain valid values.</li><li>Choose Analyze or Reanalyze after changing fields or Power BI filters.</li><li>Try the same steps in a blank report with a small synthetic dataset.</li><li>Review the <a href="../known-issues/">known issues and limits</a>.</li></ol>
+
+    <h2>What to include in a bug report</h2>
+    <ul class="checklist"><li>Your Threadseer version. Find it in the PBIVIZ filename or, after public release, in the Marketplace/version information supplied with the visual. Threadseer does not currently include an in-visual About page.</li><li>Your Power BI environment—Desktop, Service, or embedded—and its version.</li><li>The exact steps that reproduce the problem using synthetic field names and data.</li><li>What you expected and what actually happened.</li><li>Whether the problem also occurs in a blank report.</li></ul>
     <div class="actions"><a class="button" href="https://github.com/wittenauer-software/threadseer-support/issues/new?template=bug_report.yml">Report a bug</a><a class="button secondary" href="https://github.com/wittenauer-software/threadseer-support/issues/new?template=feature_request.yml">Request a feature</a></div>
-    <p>A GitHub account is required, and you must sign in before opening an issue. Browsing existing issues remains public. If you received a private Professional Preview and cannot use GitHub, reply to the pilot invitation instead.</p>
-    <h2>Security reports</h2><p>Use <a href="https://github.com/wittenauer-software/threadseer-support/security/advisories/new">private vulnerability reporting</a>. Do not disclose a suspected vulnerability publicly.</p>
-    <h2>Private account, legal, or privacy questions</h2><p>Do not place personal, account, purchase, licensing, or privacy-rights information in a public issue, and do not use the security-report channel for ordinary support. A verified private support/privacy contact and Marketplace-specific contact path will be published before public sale. If you receive Threadseer through Microsoft before then, use the private publisher contact supplied with that distribution.</p>
+    <p>A GitHub account is required, and you must sign in before opening an issue. Anyone can browse existing issues. If you received a private Professional Preview and cannot use GitHub, reply to the pilot invitation instead.</p>
+    <h2>Report a security concern privately</h2><p>Use <a href="https://github.com/wittenauer-software/threadseer-support/security/advisories/new">private vulnerability reporting</a> for suspected security vulnerabilities. Do not post security details in a public issue, and do not use this channel for ordinary support.</p>
+    <h2>Account, purchase, legal, or privacy questions</h2><p>Do not put personal, account, purchase, licensing, legal, or privacy-rights information in a public issue. A verified private support and privacy contact, along with the Marketplace contact path, will be published before public sale. If you receive Threadseer through Microsoft before then, use the private publisher contact supplied with that distribution.</p>
     <p class="meta">Support is provided on a reasonable-efforts basis. No response or resolution time is guaranteed unless a separate written agreement says otherwise.</p>
   </div></main>
-  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="../getting-started/">Getting started</a> &middot; <a href="../licensing/">Plans &amp; licensing</a> &middot; <a href="../release-notes/">Release notes</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="../getting-started/">Getting started</a> &middot; <a href="../licensing/">Pricing</a> &middot; <a href="./">Get help</a> &middot; <a href="../release-notes/">Release status</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
 </body>
 </html>

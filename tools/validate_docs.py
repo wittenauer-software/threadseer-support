@@ -137,7 +137,7 @@ for required_status in (
     "Marketplace submission</strong><span>Not submitted",
     "Public availability</strong><span>Not available",
     "Public purchase</strong><span>Not available",
-    "Power BI certification</strong><span>Not claimed",
+    "Power BI certification</strong><span>Deferred until after launch",
 ):
     require(required_status in release_notes, f"Release Status is missing current state: {required_status}")
 require(

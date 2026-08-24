@@ -13,7 +13,7 @@
   <main id="main" class="page"><div class="content">
     <div class="eyebrow">Product status</div><h1>Known issues and limits</h1>
     <p class="lede">Check whether a problem is a confirmed bug, a documented data limit, or a Power BI environment restriction.</p>
-    <p class="meta"><strong>Version scope:</strong> Threadseer 0.1.0.112 pre-submission build &middot; <strong>Last reviewed:</strong> August 22, 2026</p>
+    <p class="meta"><strong>Version scope:</strong> Threadseer 0.1.0.114 pre-submission build &middot; <strong>Last reviewed:</strong> August 23, 2026</p>
 
     <h2>Known issues</h2>
     <p>The public GitHub tracker lists confirmed current bugs with the <em>known issue</em> label. If the filtered list is empty, there are no confirmed open issues with that label.</p>
@@ -21,14 +21,14 @@
 
     <h2>Product limits</h2>
     <div class="grid limits-grid">
-      <article class="card"><h3>Data size</h3><ul class="checklist"><li>Community supports up to 25,000 event rows in each analysis.</li><li>Professional has a supported baseline of 100,000 event rows.</li><li>Professional may attempt complete datasets above 100,000 rows, up to 1,000,000, when Power BI and device resources permit. Larger analyses are not guaranteed.</li><li>If Power BI cannot load the full filtered dataset, Threadseer stops instead of analyzing partial data.</li></ul></article>
+      <article class="card"><h3>Data size</h3><ul class="checklist"><li>Community supports up to 25,000 event rows in each analysis.</li><li>Professional has a supported baseline of 100,000 event rows.</li><li>Professional may attempt complete datasets above 100,000 rows, up to 1,000,000, when Power BI and device resources permit. Larger analyses are not guaranteed.</li><li>If Power BI cannot load the full filtered dataset, Threadseer stops instead of analyzing partial data.</li><li>A read-only dashboard tile may receive only the first 10,000 events from a larger selection. Threadseer keeps Analyze disabled and directs you to the source report instead of loading indefinitely or analyzing incomplete tile data.</li></ul></article>
       <article class="card"><h3>Process map</h3><p>Very large numbers of activities or connections can make a process map difficult to read. Threadseer applies display limits to keep the workspace usable. Narrow the Power BI filters when the map is too dense.</p></article>
       <article class="card"><h3>Case details</h3><p>The Cases view displays up to 200 matching cases at a time. A selected case timeline displays up to 500 events. Use search or another view to narrow a large group.</p></article>
       <article class="card"><h3>Filters and refreshed results</h3><p>Changing a mapped field or Power BI filter marks the current results as needing a refresh. Threadseer keeps the previous results visible until you deliberately choose <strong>Analyze new selection</strong>.</p></article>
     </div>
 
     <h2>Supported Power BI environments</h2>
-    <p>The current pre-submission build has been validated locally in Power BI Desktop and in the packaged test environment. Power BI Service validation is still pending. The exact Threadseer and Power BI versions supported at public launch will be listed in <a href="../release-notes/">Release Status</a>.</p>
+    <p>The current pre-submission build has been validated in Power BI Desktop, the packaged test environment, and Power BI Service. In Service validation, an interactive report loaded all 12,200 test events and opened all ten analytical views, while read-only dashboard tiles stopped safely when Power BI supplied only the first 10,000 events. The exact Threadseer and Power BI versions supported at public launch will be listed in <a href="../release-notes/">Release Status</a>.</p>
     <p>Embedded reports, national or regional clouds, Power BI Report Server, and export features have additional Power BI or licensing limits. Do not assume they behave the same as Power BI Desktop or Service.</p>
 
     <h2>Licensing limits</h2>

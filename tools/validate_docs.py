@@ -125,6 +125,10 @@ require(reviewed_label is not None, "release-status.json must identify a valid l
 for view in REQUIRED_VIEWS:
     require(view in getting_started, f"Getting Started is missing the {view} view")
 require("Event / Row ID" in getting_started, "Getting Started is missing Event / Row ID guidance")
+require(
+    "source report" in getting_started and "dashboard tiles" in getting_started,
+    "Getting Started is missing the incomplete-dashboard guidance",
+)
 
 release_notes = page_path("release-notes").read_text(encoding="utf-8")
 require(
@@ -162,6 +166,17 @@ known_issues = page_path("known-issues").read_text(encoding="utf-8")
 require(
     "Supported Power BI environments" in known_issues,
     "Known Issues must state the supported-environment boundary",
+)
+require(
+    "first 10,000 events" in known_issues
+    and "loading indefinitely" in known_issues
+    and "Power BI Service" in known_issues,
+    "Known Issues is missing the current dashboard and Service boundary",
+)
+require(
+    "loading indefinitely" in release_notes
+    and "all ten analytical views" in release_notes,
+    "Release Status is missing the current dashboard-loading fix and validation scope",
 )
 for name, content in (
     ("Getting Started", getting_started),
@@ -240,6 +255,23 @@ for customer_message in (
 require((ROOT / "CONTRIBUTING.md").is_file(), "CONTRIBUTING.md is missing")
 require((ROOT / "SECURITY.md").is_file(), "SECURITY.md is missing")
 require((ROOT / ".github" / "CODEOWNERS").is_file(), "CODEOWNERS is missing")
+
+agent_instructions_path = ROOT / "AGENTS.md"
+require(agent_instructions_path.is_file(), "AGENTS.md is missing")
+if agent_instructions_path.is_file():
+    agent_instructions = agent_instructions_path.read_text(encoding="utf-8")
+    for required_instruction in (
+        "docs/release-status.json",
+        "threadseer-support/",
+        "python tools/validate_docs.py",
+        "docs:verify:release",
+        "live company Pages site",
+        "successful, failed, skipped, and not-run checks",
+    ):
+        require(
+            required_instruction in agent_instructions,
+            f"AGENTS.md is missing the release instruction: {required_instruction}",
+        )
 
 if failures:
     print("Documentation validation failed:", file=sys.stderr)

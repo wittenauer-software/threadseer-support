@@ -14,7 +14,7 @@ body:
     attributes:
       label: Threadseer version
       description: Use the PBIVIZ filename or the Marketplace/version details supplied with the visual. Threadseer does not currently expose an in-visual About page.
-      placeholder: 0.1.0.116 (from the PBIVIZ filename)
+      placeholder: 1.0.0.0 (from the PBIVIZ filename)
     validations:
       required: true
   - type: dropdown

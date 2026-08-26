@@ -15,6 +15,7 @@ from xml.etree import ElementTree
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 BASE_URL = "https://wittenauer-software.github.io/threadseer-support"
+PUBLIC_CONTACT_EMAIL = "jasonwittenauer@wittenauersoftware.com"
 REQUIRED_PAGES = (
     "",
     "getting-started",
@@ -84,6 +85,12 @@ for html_file in html_files:
     for href in re.findall(r'href="([^"]+)"', content):
         parsed = urlsplit(href)
         if parsed.scheme:
+            if parsed.scheme == "mailto":
+                require(
+                    href == f"mailto:{PUBLIC_CONTACT_EMAIL}",
+                    f"{relative} contains an unapproved email link: {href}",
+                )
+                continue
             require(parsed.scheme == "https", f"{relative} contains a non-HTTPS link: {href}")
             continue
         if href.startswith("#"):
@@ -200,9 +207,18 @@ require(
 
 privacy = page_path("privacy").read_text(encoding="utf-8")
 terms = page_path("terms").read_text(encoding="utf-8")
-for name, content in (("Privacy", privacy), ("Terms", terms)):
+accessibility = page_path("accessibility").read_text(encoding="utf-8")
+for name, content in (
+    ("Support", support),
+    ("Privacy", privacy),
+    ("Terms", terms),
+    ("Accessibility", accessibility),
+):
     require("Wittenauer Software LLC" in content, f"{name} must identify the publisher")
-    require("verified private" in content, f"{name} must explain the private-contact boundary")
+    require(
+        f'mailto:{PUBLIC_CONTACT_EMAIL}' in content,
+        f"{name} must publish the approved private-contact mailbox",
+    )
 require(
     "Microsoft Standard Contract for Microsoft Marketplace" in terms,
     "Terms must identify the selected Microsoft Standard Contract",
@@ -225,8 +241,14 @@ for obsolete in (
     "undergoing final validation",
     "Marketplace availability is not yet confirmed",
     "Current Threadseer 0.1.x validation builds",
+    "verified private",
+    "before public sale",
 ):
     require(obsolete not in all_public_text, f"Public pages contain obsolete status copy: {obsolete}")
+
+support_markdown = (ROOT / "SUPPORT.md").read_text(encoding="utf-8")
+require(PUBLIC_CONTACT_EMAIL in support_markdown, "SUPPORT.md must publish the approved private-contact mailbox")
+require("before public sale" not in support_markdown, "SUPPORT.md contains the obsolete pre-sale contact promise")
 
 for internal_term in (
     "publisher-controlled services",

@@ -12,6 +12,6 @@ GitHub issues are public. Do not upload confidential or personal data, employer 
 
 Security vulnerabilities must not be filed publicly. Use [GitHub private vulnerability reporting](https://github.com/wittenauer-software/threadseer-support/security/advisories/new).
 
-Do not put personal, account, purchase, licensing, legal, or privacy-rights information in a public issue. Private vulnerability reporting is only for suspected security problems, not ordinary support. A verified private support and privacy contact, along with the Marketplace contact path, will be published before public sale.
+Do not put personal, account, purchase, licensing, legal, or privacy-rights information in a public issue. Email Wittenauer Software LLC at [jasonwittenauer@wittenauersoftware.com](mailto:jasonwittenauer@wittenauersoftware.com) for those private questions. Do not email Power BI report files, event logs, credentials, tenant or customer data, or proprietary field names. Private vulnerability reporting is only for suspected security problems, not ordinary support.
 
 Support is provided on a reasonable-efforts basis. This public channel has no guaranteed response or resolution time unless a separate written agreement says otherwise.

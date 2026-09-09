@@ -41,6 +41,17 @@ Validate changes locally with:
 python tools/validate_docs.py
 ```
 
+Before publishing changes to issue guidance, also verify the live GitHub label
+used by the Known Issues filter. This read-only check requires authenticated
+GitHub CLI access:
+
+```powershell
+python tools/validate_docs.py --require-github
+```
+
+Apply the `known issue` label to confirmed current bugs. Keep unconfirmed reports
+without that label until reproduced; the public Known Issues page links to this filter.
+
 The same validator runs in GitHub Actions. Public pages are durable product
 documentation, not a submission-status dashboard. `docs/release-status.json`
 retains its existing URL for compatibility and identifies the documented

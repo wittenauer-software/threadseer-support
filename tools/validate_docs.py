@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 import sys
 from datetime import date
 from pathlib import Path
@@ -124,6 +125,12 @@ require(locations == expected_locations, "sitemap.xml must contain exactly the r
 
 getting_started = page_path("getting-started").read_text(encoding="utf-8")
 require(
+    'id="automatic-restoration"' in getting_started
+    and "unchanged" in getting_started
+    and "current license" in getting_started,
+    "Getting Started must explain automatic restoration of unchanged, previously authorized analysis within current license limits",
+)
+require(
     isinstance(current_version, str) and re.fullmatch(r"\d+\.\d+\.\d+\.\d+", current_version) is not None,
     "release-status.json must identify a four-part numeric version",
 )
@@ -211,6 +218,13 @@ require(
 )
 
 privacy = page_path("privacy").read_text(encoding="utf-8")
+require(
+    'id="support-email"' in privacy
+    and "email address" in privacy
+    and "attachments" in privacy
+    and "stored through the email services" in privacy,
+    "Privacy must explain what support email receives and stores separately from Power BI report data",
+)
 terms = page_path("terms").read_text(encoding="utf-8")
 accessibility = page_path("accessibility").read_text(encoding="utf-8")
 for name, content in (
@@ -292,6 +306,10 @@ for obsolete in (
     "intended for distribution",
     "pilot invitation",
     "Private Professional Preview evaluators",
+    "Before public Marketplace release",
+    "After launch",
+    "Threadseer analyzes only when",
+    "does not receive or retain the underlying Microsoft plan identifier",
 ):
     require(re.search(r"\b" + re.escape(obsolete) + r"(?=\W|$)", public_copy, re.IGNORECASE) is None, f"Public content contains obsolete status copy: {obsolete}")
 
@@ -327,6 +345,23 @@ require((ROOT / "CONTRIBUTING.md").is_file(), "CONTRIBUTING.md is missing")
 require((ROOT / "SECURITY.md").is_file(), "SECURITY.md is missing")
 require((ROOT / ".github" / "CODEOWNERS").is_file(), "CODEOWNERS is missing")
 
+if "--require-github" in sys.argv:
+    try:
+        result = subprocess.run(
+            ["gh", "label", "list", "--repo", "wittenauer-software/threadseer-support", "--limit", "1000", "--json", "name"],
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=30,
+        )
+        labels = json.loads(result.stdout)
+        require(
+            any(label.get("name") == "known issue" for label in labels),
+            "GitHub must contain the known issue label used by the public Known Issues filter",
+        )
+    except (OSError, subprocess.SubprocessError, ValueError, TypeError, AttributeError) as exc:
+        failures.append(f"Could not verify live GitHub labels: {type(exc).__name__}")
+
 agent_instructions_path = ROOT / "AGENTS.md"
 require(agent_instructions_path.is_file(), "AGENTS.md is missing")
 if agent_instructions_path.is_file():
@@ -351,3 +386,4 @@ if failures:
     raise SystemExit(1)
 
 print(f"Documentation validation passed for {len(html_files)} HTML files and {len(locations)} sitemap entries.")
+print("Live GitHub label check passed." if "--require-github" in sys.argv else "Live GitHub label check not run (use --require-github).")

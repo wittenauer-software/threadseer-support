@@ -5,7 +5,7 @@ This company-owned public repository hosts the support hub, legal notices, and i
 - [Threadseer product and documentation home](https://wittenauer-software.github.io/threadseer-support/)
 - [Getting started](https://wittenauer-software.github.io/threadseer-support/getting-started/)
 - [Plans and pricing](https://wittenauer-software.github.io/threadseer-support/licensing/)
-- [Release status](https://wittenauer-software.github.io/threadseer-support/release-notes/)
+- [Release notes](https://wittenauer-software.github.io/threadseer-support/release-notes/)
 - [Known issues and limits](https://wittenauer-software.github.io/threadseer-support/known-issues/)
 - [Get help](https://wittenauer-software.github.io/threadseer-support/support/)
 - [Open a bug report](https://github.com/wittenauer-software/threadseer-support/issues/new?template=bug_report.yml)
@@ -21,13 +21,11 @@ Before posting, remove employer data, event logs, report files, screenshots with
 
 Support is provided on a reasonable-efforts basis. No response-time commitment is offered unless a separate written agreement says otherwise.
 
-Threadseer's initial Microsoft Marketplace launch is planned for the United
-States under the Microsoft Standard Contract. Community is free. Professional
-launch pricing is US$20 per assigned user per month or US$200 per assigned user
-per year. There is no time-limited Professional trial at launch; Community is
-the permanent free evaluation path. Marketplace approval and checkout are not
-yet verified, and optional Power BI certification is deferred until after
-launch.
+Community is free. Professional is US$20 per assigned user per month or
+US$200 per assigned user per year. Microsoft manages Professional purchasing and
+license assignment under the Microsoft Standard Contract. Community is the
+permanent free evaluation path; there is no time-limited Professional trial.
+See the pricing page for purchasing regions and environment limitations.
 
 ## Maintaining this repository
 
@@ -43,6 +41,12 @@ Validate changes locally with:
 python tools/validate_docs.py
 ```
 
-The same validator runs in GitHub Actions. Public release notes must name every
-released Marketplace version; pre-release pages must not claim approval,
-availability, purchase, or certification before those states are verified.
+The same validator runs in GitHub Actions. Public pages are durable product
+documentation, not a submission-status dashboard. `docs/release-status.json`
+retains its existing URL for compatibility and identifies the documented
+version, documentation scope, and review date; it does not assert Marketplace
+approval or publication. Keep setup, pricing, limitations, and version notes
+complete without launch countdowns or private validation checklists. Record
+Marketplace review evidence in the private product repository. Add direct
+listing links only when their exact destinations are verified. Do not invent
+release dates, approval, certification, or successful host-test results.

@@ -3,8 +3,8 @@
 Wittenauer Software LLC provides Threadseer support through the [public issue tracker](https://github.com/wittenauer-software/threadseer-support/issues). Use it to report reproducible product problems, documentation problems, accessibility problems, or feature requests.
 
 A GitHub account and sign-in are required to open an issue. Browsing existing
-issues remains public. Private Professional Preview evaluators who cannot use
-GitHub should reply to their pilot invitation instead.
+issues remains public. For questions that require private information, use the
+email contact below.
 
 Include the Threadseer version, Power BI environment and version, steps to reproduce, what you expected, what happened, and whether the problem also occurs in a blank report with synthetic data.
 

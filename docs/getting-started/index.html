@@ -61,7 +61,8 @@
     </details>
 
     <h2>When your filters change</h2>
-    <p>Threadseer analyzes only when you choose <strong>Analyze</strong> or <strong>Reanalyze</strong>. Resizing the visual, changing formatting, or moving between views does not start a new analysis.</p>
+    <p>Choose <strong>Analyze</strong> or <strong>Reanalyze</strong> to analyze a new or changed selection. Resizing the visual, changing formatting, or moving between views does not start a new analysis.</p>
+    <p id="automatic-restoration">When Power BI recreates the visual, Threadseer can automatically rebuild your last explicitly requested analysis if the data and mapped fields are unchanged. This restoration still respects your current license and data-capacity limits. A new or changed selection requires you to choose Analyze.</p>
     <p>After you change a mapped field or Power BI filter, Threadseer keeps the previous results visible and tells you they need refreshing. Choose <strong>Analyze new selection</strong> when you are ready to replace them. Selections you make inside Threadseer narrow the current results without rebuilding the full analysis.</p>
     <p>If Power BI cannot load the entire filtered dataset, Threadseer stops instead of analyzing partial data. Read-only dashboard tiles may receive only the first part of a larger selection; when that happens, open or refresh the source report to load and analyze the complete selection.</p>
 

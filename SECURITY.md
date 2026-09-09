@@ -4,11 +4,11 @@ Wittenauer Software LLC maintains this security policy for Threadseer.
 
 ## Supported versions
 
-Before public Marketplace release, only the exact candidate supplied through an
-authorized Microsoft or publisher review channel is supported for security
-evaluation. After launch, the current Marketplace version is supported. Older
-versions are evaluated case by case until a versioned support window is
-published in Release Notes.
+Security support covers the current version described in
+[Release Notes](https://wittenauer-software.github.io/threadseer-support/release-notes/)
+and copies supplied through an authorized Microsoft or publisher review channel.
+Older versions are evaluated case by case. Include the affected version when
+reporting a vulnerability.
 
 ## Report a vulnerability privately
 

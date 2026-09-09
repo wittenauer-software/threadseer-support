@@ -1,9 +1,9 @@
 blank_issues_enabled: false
 contact_links:
   - name: Threadseer support guide
-    url: https://jasonwi1202.github.io/threadseer-support/support/
+    url: https://wittenauer-software.github.io/threadseer-support/support/
     about: Review troubleshooting and the information needed for a useful report.
   - name: Private security report
-    url: https://github.com/jasonwi1202/threadseer-support/security/advisories/new
+    url: https://github.com/wittenauer-software/threadseer-support/security/advisories/new
     about: Report suspected vulnerabilities privately, never in a public issue.
 

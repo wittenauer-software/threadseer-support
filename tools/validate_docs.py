@@ -242,6 +242,33 @@ require(
 )
 
 all_public_text = "\n".join(path.read_text(encoding="utf-8") for path in html_files)
+public_copy_paths = [
+    *html_files,
+    *(ROOT / name for name in ("README.md", "SUPPORT.md", "SECURITY.md", "CONTRIBUTING.md")),
+    *sorted((ROOT / ".github" / "ISSUE_TEMPLATE").glob("*.yml")),
+]
+public_copy = "\n".join(path.read_text(encoding="utf-8") for path in public_copy_paths)
+for path in public_copy_paths:
+    require(
+        re.search(
+            r"https://(?:github\.com/jasonwi1202|jasonwi1202\.github\.io)/threadseer-support(?=[/#?\s]|$)",
+            path.read_text(encoding="utf-8"),
+            re.IGNORECASE,
+        ) is None,
+        f"{path.relative_to(ROOT)} links to the personal support repository instead of the company repository",
+    )
+
+issue_picker = (ROOT / ".github" / "ISSUE_TEMPLATE" / "config.yml").read_text(encoding="utf-8")
+contact_urls = re.findall(r"^\s*url:\s*(https://\S+)\s*$", issue_picker, re.MULTILINE)
+require(
+    len(contact_urls) == 2 and set(contact_urls) == {
+        f"{BASE_URL}/support/",
+        "https://github.com/wittenauer-software/threadseer-support/security/advisories/new",
+    },
+    "Issue picker must link to the company support guide and private security reporting",
+)
+require("blank_issues_enabled: false" in issue_picker, "Issue picker must keep blank public issues disabled")
+
 for obsolete in (
     "undergoing final validation",
     "Marketplace availability is not yet confirmed",
@@ -260,8 +287,13 @@ for obsolete in (
     "When a live offer is verified",
     "What remains before a public release",
     "Current validation focus",
+    "after public release",
+    "Before Marketplace availability",
+    "intended for distribution",
+    "pilot invitation",
+    "Private Professional Preview evaluators",
 ):
-    require(re.search(r"\b" + re.escape(obsolete) + r"(?=\W|$)", all_public_text, re.IGNORECASE) is None, f"Public pages contain obsolete status copy: {obsolete}")
+    require(re.search(r"\b" + re.escape(obsolete) + r"(?=\W|$)", public_copy, re.IGNORECASE) is None, f"Public content contains obsolete status copy: {obsolete}")
 
 support_markdown = (ROOT / "SUPPORT.md").read_text(encoding="utf-8")
 require(PUBLIC_CONTACT_EMAIL in support_markdown, "SUPPORT.md must publish the approved private-contact mailbox")

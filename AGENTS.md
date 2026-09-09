@@ -20,7 +20,7 @@ Treat every product-version or candidate update as a repository-wide public
 documentation change. Before handoff, inventory every current- and prior-version
 reference and reconcile all applicable living surfaces:
 
-- `docs/release-status.json` version, state, and review date;
+- `docs/release-status.json` documented version, documentation scope, and review date;
 - Getting Started, Known Issues, Release Status, Support, licensing, privacy,
   terms, accessibility, and homepage copy affected by the release;
 - `.github/ISSUE_TEMPLATE/bug_report.yml` version guidance;
@@ -53,3 +53,15 @@ Any stale, failed, skipped, unavailable, or cross-repository check remains an
 explicit release blocker. Report successful, failed, skipped, and not-run checks
 separately, and never describe Threadseer as submitted, approved, available,
 purchasable, or certified without current external evidence.
+
+## Public documentation style
+
+The owner directed on 2026-09-09 that the support site present complete product
+documentation without repeated submission, coming-soon, or launch-readiness
+statuses. Keep Marketplace review evidence in the private product repository.
+The retained `docs/release-status.json` URL describes documentation scope, not
+Marketplace publication. Explain customer-relevant limits directly; do not
+publish private test checklists or imply that unrun checks passed. Keep pricing
+and setup instructions useful, and verify exact destinations before adding
+Marketplace listing links. This policy does not change product behavior,
+certification status, or Microsoft approval.

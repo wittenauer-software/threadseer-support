@@ -65,7 +65,7 @@ for slug in REQUIRED_PAGES:
 
 for slug in REQUIRED_PAGES:
     content = page_path(slug).read_text(encoding="utf-8")
-    for navigation_label in ("Pricing", "Get help", "Release status"):
+    for navigation_label in ("Pricing", "Get help", "Release notes"):
         require(
             navigation_label in content,
             f"{slug or '/'} is missing the customer navigation label: {navigation_label}",
@@ -127,7 +127,10 @@ require(
     isinstance(current_version, str) and re.fullmatch(r"\d+\.\d+\.\d+\.\d+", current_version) is not None,
     "release-status.json must identify a four-part numeric version",
 )
-require(release_status.get("status") == "pre-submission", "release-status.json must preserve the pre-submission status")
+require(
+    release_status.get("documentationScope") == "product-guide" and "status" not in release_status,
+    "release-status.json must describe product documentation without asserting Marketplace state",
+)
 require(reviewed_label is not None, "release-status.json must identify a valid lastReviewed date")
 for view in REQUIRED_VIEWS:
     require(view in getting_started, f"Getting Started is missing the {view} view")
@@ -136,25 +139,20 @@ require(
     "source report" in getting_started and "dashboard tiles" in getting_started,
     "Getting Started is missing the incomplete-dashboard guidance",
 )
+require(
+    "Get more visuals" in getting_started and "AppSource" in getting_started,
+    "Getting Started must explain how to add the visual in Power BI",
+)
 
 release_notes = page_path("release-notes").read_text(encoding="utf-8")
-require(
-    "No Marketplace submission has been made" in release_notes,
-    "Release Notes must state the current not-submitted status",
-)
-require("not a public Marketplace release" in release_notes, "Release Notes must prohibit premature availability claims")
-for required_status in (
-    "United States",
-    "Marketplace submission</strong><span>Not submitted",
-    "Public availability</strong><span>Not available",
-    "Public purchase</strong><span>Not available",
-    "Power BI certification</strong><span>Deferred until after launch",
-):
-    require(required_status in release_notes, f"Release Status is missing current state: {required_status}")
+for view in REQUIRED_VIEWS:
+    require(view in release_notes, f"Release Notes is missing the {view} view")
+require("Release notes</h1>" in release_notes, "Release Notes must provide version notes")
+require("Public release date" not in release_notes, "Do not invent a Marketplace release date")
 require(
     "US$20 per assigned user per month" not in release_notes
     and "US$200 per assigned user per year" not in release_notes,
-    "Release Status must link to Pricing instead of duplicating plan prices",
+    "Release Notes must link to Pricing instead of duplicating plan prices",
 )
 
 licensing = page_path("licensing").read_text(encoding="utf-8")
@@ -168,6 +166,13 @@ for required_term in (
     "United States",
 ):
     require(required_term in licensing, f"Licensing is missing approved term: {required_term}")
+
+require(
+    "Where can I purchase Professional?" in licensing
+    and licensing.count("United States") == 1
+    and "allow up to an hour" in licensing,
+    "Pricing must explain purchasing scope and license activation without repeated launch notices",
+)
 
 known_issues = page_path("known-issues").read_text(encoding="utf-8")
 require(
@@ -183,7 +188,7 @@ require(
 require(
     "loading indefinitely" in release_notes
     and "all ten analytical views" in release_notes,
-    "Release Status is missing the current dashboard-loading fix and validation scope",
+    "Release Notes is missing the current dashboard-loading fix and validation scope",
 )
 for name, content in (
     ("Getting Started", getting_started),
@@ -243,8 +248,20 @@ for obsolete in (
     "Current Threadseer 0.1.x validation builds",
     "verified private",
     "before public sale",
+    "pre-submission",
+    "pre-release",
+    "has not been submitted",
+    "No Marketplace submission has been made",
+    "Not submitted",
+    "coming soon",
+    "pending",
+    "Professional (planned)",
+    "after the offer becomes available",
+    "When a live offer is verified",
+    "What remains before a public release",
+    "Current validation focus",
 ):
-    require(obsolete not in all_public_text, f"Public pages contain obsolete status copy: {obsolete}")
+    require(re.search(r"\b" + re.escape(obsolete) + r"(?=\W|$)", all_public_text, re.IGNORECASE) is None, f"Public pages contain obsolete status copy: {obsolete}")
 
 support_markdown = (ROOT / "SUPPORT.md").read_text(encoding="utf-8")
 require(PUBLIC_CONTACT_EMAIL in support_markdown, "SUPPORT.md must publish the approved private-contact mailbox")

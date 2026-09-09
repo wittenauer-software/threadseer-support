@@ -3,50 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Check Threadseer's current Marketplace status, public availability, and future release-note format.">
-  <title>Release Status | Threadseer</title>
+  <meta name="description" content="Explore Threadseer version notes, process-analysis features, and known limitations.">
+  <title>Release Notes | Threadseer</title>
   <link rel="stylesheet" href="../assets/styles.css?v=20260822-business-copy">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="../getting-started/">Getting started</a><a href="../licensing/">Pricing</a><a href="../support/">Get help</a><a href="../known-issues/">Known issues</a><a href="./" aria-current="page">Release status</a></div></nav></header>
+  <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="../getting-started/">Getting started</a><a href="../licensing/">Pricing</a><a href="../support/">Get help</a><a href="../known-issues/">Known issues</a><a href="./" aria-current="page">Release notes</a></div></nav></header>
   <main id="main" class="page"><div class="content">
-    <div class="eyebrow">Product availability</div>
-    <h1>Release status</h1>
-    <p class="lede">This page separates internal validation from a version that customers can install through Microsoft Marketplace.</p>
+    <div class="eyebrow">Version notes</div>
+    <h1>Release notes</h1>
+    <p class="lede">Features and improvements in Threadseer for Power BI, with links to setup guidance and known limitations.</p>
 
-    <div class="notice warning"><strong>No Marketplace submission has been made.</strong> Threadseer 1.0.0.0 is a local pre-submission validation build, not a public Marketplace release. There is no verified public download, purchase link, or installation path.</div>
+    <h2>Threadseer 1.0.0.0</h2>
+    <p class="meta"><strong>Last reviewed:</strong> September 9, 2026</p>
+    <p>Threadseer brings process discovery and investigation into one Power BI visual. Map Case ID, Activity, and Timestamp, then choose Analyze to explore how work moves through your process. Your report and process data stay in Power BI and are not sent to Wittenauer Software.</p>
 
-    <h2>Current status</h2>
-    <p class="meta"><strong>Version being validated:</strong> Threadseer 1.0.0.0 &middot; <strong>Public release date:</strong> Not released &middot; <strong>Last reviewed:</strong> August 26, 2026</p>
-    <div class="status-grid">
-      <div class="status-item"><strong>Marketplace submission</strong><span>Not submitted</span></div>
-      <div class="status-item"><strong>Public availability</strong><span>Not available</span></div>
-      <div class="status-item"><strong>Public purchase</strong><span>Not available</span></div>
-      <div class="status-item"><strong>Power BI certification</strong><span>Deferred until after launch</span></div>
-    </div>
-    <p>The planned first market is the United States. Community and Professional plan details are available on the <a href="../licensing/">Plans &amp; Pricing</a> page, but they do not represent a live offer.</p>
-
-    <h2>Current validation focus</h2>
-    <p>Version 1.0.0.0 replaces the leading-zero 0.1.0.116 package after Partner Center rejected that version format. The product behavior is unchanged: it keeps the keyboard-focusable process-map transitions, deterministic portrait layouts, Power BI Value-field formatting, and the dashboard safeguard that prevents a larger read-only tile from loading indefinitely when it receives incomplete data.</p>
-    <p>The exact 1.0.0.0 package and sample report are reconciled and directly analyzed in Power BI Desktop across all ten analytical views. The 0.1.0.116 packaged-test, portrait-layout, Chrome and Edge Service, Edge zoom, and owner-attested Firefox results remain historical evidence for the unchanged runtime rather than being relabeled as 1.0.0.0. Exact 1.0.0.0 Service repetition, broader Microsoft-host permutations, and actual Power BI Mobile app validation remain pending.</p>
-
-    <h2>What remains before a public release</h2>
+    <h3>Explore and investigate your process</h3>
     <ul class="checklist">
-      <li>Select the immutable submission candidate and repeat the remaining exact-candidate accessibility, offline, mobile, Microsoft-host permutations, and any changed Marketplace-media checks.</li>
-      <li>Complete the remaining exact-candidate cross-platform and Microsoft licensing checks.</li>
-      <li>Keep the published support and privacy mailbox monitored, and confirm the Partner Center contact path.</li>
-      <li>Submit the exact candidate to Microsoft and confirm approval and public availability before publishing installation or purchase links.</li>
+      <li><strong>Process Map and Variants:</strong> discover the paths cases follow and inspect common or unusual routes.</li>
+      <li><strong>Compare and Conformance:</strong> compare two process paths and review departures from the expected paths you define.</li>
+      <li><strong>Drivers and Improve:</strong> explore patterns associated with outcomes and identify opportunities for further investigation.</li>
+      <li><strong>Bottlenecks and Rework:</strong> locate delays, repeated activities, and loops.</li>
+      <li><strong>Cases and Data Quality:</strong> trace findings to individual case timelines and review data conditions that affect interpretation.</li>
+    </ul>
+    <p>Community and Professional include all ten analytical views, the same fields, and the same calculations. Professional adds higher data capacity. See <a href="../licensing/">Plans &amp; Pricing</a> for limits and licensing.</p>
+
+    <h3>Working with Power BI</h3>
+    <ul class="checklist">
+      <li>Choose Analyze to create a snapshot. When mapped data or filters change, keep the previous results visible until you choose to analyze the new selection.</li>
+      <li>Use keyboard navigation and visible focus indicators across workspace controls, including Enter and Space selection on process-map transitions.</li>
+      <li>Inspect Power BI Value-field formatting in relevant map labels and tooltips.</li>
+      <li>When a read-only dashboard tile receives only part of a larger dataset, Threadseer directs you to the source report instead of loading indefinitely or analyzing incomplete data.</li>
     </ul>
 
-    <h2>After launch</h2>
-    <p>Each public release entry will identify the exact version and release date, then summarize:</p>
-    <ul class="checklist"><li><strong>New:</strong> customer-facing capabilities.</li><li><strong>Improved:</strong> changes that make existing workflows clearer or more reliable.</li><li><strong>Fixed:</strong> resolved customer problems.</li><li><strong>Known limitations:</strong> boundaries that may affect use.</li></ul>
-    <p>Detailed engineering validation remains in the private product repository. This page and the public GitHub tracker provide the customer-facing history.</p>
-
-    <h2>Known issues</h2>
-    <p>See <a href="../known-issues/">Known Issues and Limits</a> for confirmed bugs, capacity guidance, Power BI environment boundaries, and the reporting path.</p>
+    <h3>Known limitations and help</h3>
+    <p>Review <a href="../known-issues/">Known Issues and Limits</a> for data capacity, dashboard behavior, case-detail display limits, and Power BI environment boundaries. The <a href="../accessibility/">accessibility statement</a> covers keyboard use and host-dependent behavior.</p>
+    <div class="actions"><a class="button" href="../getting-started/">Get started</a><a class="button secondary" href="../support/">Get help</a></div>
   </div></main>
-  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="../getting-started/">Getting started</a> &middot; <a href="../licensing/">Pricing</a> &middot; <a href="../support/">Get help</a> &middot; <a href="./">Release status</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://wittenauersoftware.com">Wittenauer Software</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><p>&copy; 2026 Wittenauer Software LLC. Threadseer. All rights reserved.</p><p><a href="../getting-started/">Getting started</a> &middot; <a href="../licensing/">Pricing</a> &middot; <a href="../support/">Get help</a> &middot; <a href="./">Release notes</a> &middot; <a href="../privacy/">Privacy</a> &middot; <a href="../terms/">Terms</a> &middot; <a href="../accessibility/">Accessibility</a> &middot; <a href="https://wittenauersoftware.com">Wittenauer Software</a> &middot; <a href="https://github.com/wittenauer-software/threadseer-support">GitHub</a></p></div></footer>
 </body>
 </html>

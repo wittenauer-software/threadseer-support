@@ -12,7 +12,7 @@
   <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="../"><span class="brand-mark" aria-hidden="true">TS</span>Threadseer</a><div class="nav-links"><a href="../getting-started/">Getting started</a><a href="../licensing/">Pricing</a><a href="../support/">Get help</a><a href="./" aria-current="page">Known issues</a><a href="../release-notes/">Release notes</a></div></nav></header>
   <main id="main" class="page"><div class="content">
     <div class="eyebrow">Product status</div><h1>Known issues and limits</h1>
-    <p>Hierarchy supports four ordered parent fields plus Activity Category and up to eight open groups. Each child must have one consistent parent; inconsistent mappings disable hierarchy while Standard stays available. No business meaning is inferred. Elapsed transition time and group span do not measure active work or pure waiting. Dense maps can suppress labels or limit displayed paths; tooltips and the reading guide explain the active scope.</p>
+    <p>Hierarchy supports Hierarchy 1 through Hierarchy 3, followed by optional Activity Category: up to four parent levels above Activity and up to eight open groups. Each child must have one consistent parent; inconsistent mappings disable hierarchy while Standard stays available. No business meaning is inferred. Elapsed transition time and group span do not measure active work or pure waiting. Dense maps can suppress labels or limit displayed paths; tooltips and the reading guide explain the active scope.</p>
     <p class="lede">Check whether a problem is a confirmed bug, a documented data limit, or a Power BI environment restriction.</p>
     <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.0 &middot; <strong>Last reviewed:</strong> September 23, 2026</p>
 
@@ -32,6 +32,8 @@
 
     <h2>Supported Power BI environments</h2>
     <p>Use Threadseer in Power BI Desktop or interactive Power BI Service reports. Report behavior also depends on the Power BI version, browser, visual size, and organization settings. Power BI Mobile apps are outside the supported environment scope.</p>
+    <p>Power BI does not offer individual dashboard pinning for slicer-style custom visuals such as Threadseer, which uses case filters to update other report visuals. To include Threadseer on a dashboard, pin the live report page. Open the source report for full analysis and filtering.</p>
+    <p>Map event-row columns to Threadseer, not aggregated measures. Power BI can refuse conversion from a measure-only chart, such as a Gauge. Add Threadseer as a new visual and map Case ID, Activity and Timestamp, or clear the incompatible measures before converting.</p>
     <p>Embedded reports, national or regional clouds, Power BI Report Server, and export features have additional Power BI or licensing limits. Do not assume they behave the same as Power BI Desktop or Service.</p>
 
     <h2>Licensing limits</h2>

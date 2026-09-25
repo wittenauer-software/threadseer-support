@@ -14,7 +14,7 @@
     <div class="eyebrow">Product status</div><h1>Known issues and limits</h1>
     <p>Hierarchy supports Hierarchy 1 through Hierarchy 3, followed by optional Activity Category: up to four parent levels above Activity and up to eight open groups. Each child must have one consistent parent; inconsistent mappings disable hierarchy while Standard stays available. No business meaning is inferred. Elapsed transition time and group span do not measure active work or pure waiting. Dense maps can suppress labels or limit displayed paths; tooltips and the reading guide explain the active scope.</p>
     <p class="lede">Check whether a problem is a confirmed bug, a documented data limit, or a Power BI environment restriction.</p>
-    <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.0 &middot; <strong>Last reviewed:</strong> September 24, 2026</p>
+    <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.0 &middot; <strong>Last reviewed:</strong> September 25, 2026</p>
 
     <h2>Known issues</h2>
     <p>The public GitHub tracker lists confirmed current bugs with the <em>known issue</em> label. If the filtered list is empty, there are no confirmed open issues with that label.</p>
@@ -23,6 +23,7 @@
     <h2>Report filtering</h2>
     <p>Case-cohort report filters support up to 25,000 distinct Case ID values and a 1 MB payload. Larger selections stay internal or use an available exact-event selection, with the active behavior stated in the visual. Date-valued Case IDs or an unresolved source column can require that fallback. Threadseer never sends a truncated case cohort. Reanalyze a stale snapshot before filtering the report from it. Report totals can include source records excluded from the mined snapshot by data-quality rules.</p>
     <h2>Product limits</h2>
+    <p>Bookmarks require Data enabled and Threadseer included in the bookmark. Data-dependent selections, expanded groups and zoom restore only against matching analyzed input. Explicit bookmark cohorts are limited to 4,096 case indexes and map search text to 2,048 characters; a visible notice explains when a selection is too large to save. Other tabs' searches, sorting and scroll position are not saved.</p>
     <div class="grid limits-grid">
       <article class="card"><h3>Data size</h3><ul class="checklist"><li>Community supports up to 25,000 event rows in each analysis.</li><li>Professional has a supported baseline of 100,000 event rows.</li><li>Professional may attempt complete datasets above 100,000 rows, up to 1,000,000, when Power BI and device resources permit. Larger analyses are not guaranteed.</li><li>If Power BI cannot load the full filtered dataset, Threadseer stops instead of analyzing partial data.</li><li>A read-only dashboard tile may receive only the first 10,000 events from a larger selection. Threadseer keeps Analyze disabled and directs you to the source report instead of loading indefinitely or analyzing incomplete tile data.</li></ul></article>
       <article class="card"><h3>Process map</h3><p>Very large numbers of activities or connections can make a process map difficult to read. Threadseer applies display limits to keep the workspace usable. Narrow the Power BI filters when the map is too dense.</p></article>

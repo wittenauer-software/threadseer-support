@@ -14,7 +14,7 @@
     <div class="eyebrow">Quick-start guide</div>
     <h1>Getting started with Threadseer</h1>
     <p class="lede">Add one visual, map three fields, and see the paths your work actually follows. Your report and process data stay in Power BI and are not sent to us.</p>
-    <p class="meta"><strong>Version scope:</strong> Threadseer 1.0.1.0 &middot; <strong>Last reviewed:</strong> September 10, 2026</p>
+    <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.0 &middot; <strong>Last reviewed:</strong> September 25, 2026</p>
 
     <h2>Start in three steps</h2>
     <div class="grid steps-grid">
@@ -60,6 +60,14 @@
       </table></div>
     </details>
 
+    <h2>Read transitions and explore business hierarchies</h2>
+    <p>In Threadseer 1.1.0.0, clock labels show average elapsed time between activities. This is not necessarily waiting or active work. Use the question mark beside Edge labels for definitions, or choose frequency, case percentage or median time.</p>
+    <p>Standard remains the default map. Optionally map Hierarchy 1 through Hierarchy 3 from highest to lowest; omitted levels are skipped. Activity Category is the final optional group before Activity, for up to four parent levels in total. Threadseer validates one parent per child; inconsistent hierarchy data shows a warning without breaking Standard.</p>
+    <p>Choose View: Hierarchy and Expand subprocess to open groups inside the chart. Up to eight adjacent or nested groups can be open; breadcrumbs and collapse controls take you back. Consecutive events in one group form a visit, while leaving and returning remains visible. Both modes use the same variant and coverage selections.</p>
+    <p>Select map cards or lines to highlight paths, and select them again or click empty canvas to clear. Dragging pans without clearing. Hover details wait half a second; keyboard focus and touch details are immediate. Explicit variant and case controls still filter the report.</p>
+    <h2>Save an exploration with bookmarks</h2>
+    <p>Analyze the data and arrange the map, then Add or Update a Power BI bookmark. Keep Data enabled and include Threadseer in All visuals or Selected visuals. Bookmarks restore the active tab, Standard or Hierarchy mode, map options, selected variants, expanded groups and pan/zoom. Update older bookmarks to capture this state.</p>
+    <p>A bookmark saves exploration settings, not the event log. If the analyzed data differs, Threadseer restores safe view options and explains why saved selections, expansions and zoom were not applied. Use Analyze or Reanalyze for changed data. Other tabs' searches, sorting, tooltips and scroll position are not captured.</p>
     <h2>When your filters change</h2>
     <p>Choose <strong>Analyze</strong> or <strong>Reanalyze</strong> to analyze a new or changed selection. Resizing the visual, changing formatting, or moving between views does not start a new analysis.</p>
     <p id="automatic-restoration">When Power BI recreates the visual, Threadseer can automatically rebuild your last explicitly requested analysis if the data and mapped fields are unchanged. This restoration still respects your current license and data-capacity limits. A new or changed selection requires you to choose Analyze.</p>
@@ -68,7 +76,7 @@
 
     <h2>Resize and filter your report</h2>
     <p>When you make Threadseer smaller, use the scrollbar inside the visual to reach the remaining controls and results. Wide tables and navigation can scroll horizontally. Resizing preserves your analysis.</p>
-    <p>Select an activity, path, variant or case to filter other report visuals to the contributing cases. Activity selection includes the other steps in those cases. Existing report filters still apply. Clear the selection to remove Threadseer's report filter. Report authors should enable the desired visual interactions.</p>
+    <p>Use explicit variant and case selections to filter other report visuals to the contributing cases. Process Map cards and lines highlight related paths locally. Existing report filters still apply. Clear the outlined selection to remove Threadseer's report filter. Report authors should enable the desired visual interactions.</p>
     <h2 id="workspace">Choose a view for your question</h2>
     <div class="grid workspace-grid">
       <article class="card"><h3>See the process</h3><p><strong>Process Map</strong> shows the activities and paths cases follow. <strong>Variants</strong> ranks the most common routes. <strong>Compare</strong> places two observed routes side by side. <strong>Conformance</strong> compares complete case routes with paths you mark as Accepted.</p></article>

@@ -15,10 +15,11 @@
     <h1>Release notes</h1>
     <p class="lede">Features and improvements in Threadseer for Power BI, with links to setup guidance and known limitations.</p>
 
-    <h2>Threadseer 1.1.0.1</h2>
+    <h2>Threadseer 1.1.0.4</h2>
     <p class="meta"><strong>Last reviewed:</strong> October 6, 2026</p>
     <p>Power BI waits for asynchronous snapshot restoration and segmented loading to settle before Threadseer reports that rendering is complete. Overlapping report updates, cancellation and recovery retain the explicit Analyze/Reanalyze workflow.</p>
     <p>If license information does not arrive, the visual stops waiting and shows its existing unavailable-license guidance. Build dependency security updates do not change process calculations or data privacy.</p>
+    <p>Adding and removing variant cohorts keeps the complete analyzed snapshot while Power BI applies the report filter and saves the exploration. Clear removes Threadseer's case filter while preserving filters set elsewhere. A genuine change to report filters still shows Selection changed and waits for your explicit analysis.</p>
 
     <h2>Threadseer 1.1.0.0</h2>
     <p class="meta"><strong>Last reviewed:</strong> October 1, 2026</p>

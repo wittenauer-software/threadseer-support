@@ -13,7 +13,7 @@
   <main id="main" class="page"><div class="content">
     <div class="eyebrow">Product status</div><h1>Known issues and limits</h1>
     <p class="lede">Check whether a problem is a confirmed bug, a documented data limit, or a Power BI environment restriction.</p>
-    <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.1 &middot; <strong>Last reviewed:</strong> October 6, 2026</p>
+    <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.4 &middot; <strong>Last reviewed:</strong> October 6, 2026</p>
 
     <h2>Known issues</h2>
     <p>The public GitHub tracker lists confirmed current bugs with the <em>known issue</em> label. If the filtered list is empty, there are no confirmed open issues with that label.</p>
@@ -21,6 +21,7 @@
 
     <h2>Report filtering</h2>
     <p>Case-cohort report filters support up to 25,000 distinct Case ID values and a 1 MB payload. Larger selections stay internal or use an available exact-event selection, with the active behavior stated in the visual. Date-valued Case IDs or an unresolved source column can require that fallback. Threadseer never sends a truncated case cohort. Reanalyze a stale snapshot before filtering the report from it. Report totals can include source records excluded from the mined snapshot by data-quality rules.</p>
+    <p>If Power BI does not confirm a report-filter update, Threadseer explains that the exploration was not saved. Clear the selection and retry. Genuine changes from report or page filters still require explicit reanalysis.</p>
     <h2>Product limits</h2>
     <p>Bookmarks require Data enabled and Threadseer included in the bookmark. Data-dependent selections, expanded groups and zoom restore only against matching analyzed input. Explicit bookmark cohorts are limited to 4,096 case indexes and map search text to 2,048 characters; a visible notice explains when a selection is too large to save. Other tabs' searches, sorting and scroll position are not saved.</p>
     <div class="grid limits-grid">

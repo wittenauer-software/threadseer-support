@@ -15,6 +15,28 @@
     <h1>Release notes</h1>
     <p class="lede">Features and improvements in Threadseer for Power BI, with links to setup guidance and known limitations.</p>
 
+    <h2>Threadseer 1.1.0.8</h2>
+    <p class="meta"><strong>Last reviewed:</strong> October 7, 2026</p>
+    <p>When a saved analysis reopens, its status message follows the restored analysis tab. A converted Gauge retains its fields while Threadseer asks for the required event columns; conversion alone does not start analysis. Event inputs must remain unsummarized, including optional dimensions. Threadseer also explains when an assigned field is not delivered as event rows so you can reassign it before analysis. Explicit Analyze/Reanalyze, local processing and protected resource limits remain unchanged.</p>
+
+    <h2>Threadseer 1.1.0.7</h2>
+    <p class="meta"><strong>Last reviewed:</strong> October 6, 2026</p>
+    <p>Saved analyses retain the selected analysis tab when reopening with the same mapped input. This restoration keeps the explicit Analyze/Reanalyze workflow: changed data still requires analysis. Bookmarks with Data disabled leave the current tab unchanged.</p>
+
+    <h2>Threadseer 1.1.0.6</h2>
+    <p class="meta"><strong>Last reviewed:</strong> October 6, 2026</p>
+    <p>Appearance and theme colors are checked before rendering. Invalid color values fall back to the existing defaults instead of being treated as image or paint references. Valid colors, process calculations and the explicit Analyze/Reanalyze workflow are preserved.</p>
+
+    <h2>Threadseer 1.1.0.5</h2>
+    <p class="meta"><strong>Last reviewed:</strong> October 6, 2026</p>
+    <p>Hierarchy cards, tooltips and map guidance call the existing counts Entries. A group entry combines consecutive events in one group; leaving and returning adds another entry. At the activity level, entries count individual occurrences, including consecutive repetitions. Counts, timing calculations and report filtering are unchanged.</p>
+
+    <h2>Threadseer 1.1.0.4</h2>
+    <p class="meta"><strong>Last reviewed:</strong> October 6, 2026</p>
+    <p>Power BI waits for asynchronous snapshot restoration and segmented loading to settle before Threadseer reports that rendering is complete. Overlapping report updates, cancellation and recovery retain the explicit Analyze/Reanalyze workflow.</p>
+    <p>If license information does not arrive, the visual stops waiting and shows its existing unavailable-license guidance. Build dependency security updates do not change process calculations or data privacy.</p>
+    <p>Adding and removing variant cohorts keeps the complete analyzed snapshot while Power BI applies the report filter and saves the exploration. Clear removes Threadseer's case filter while preserving filters set elsewhere. A genuine change to report filters still shows Selection changed and waits for your explicit analysis.</p>
+
     <h2>Threadseer 1.1.0.0</h2>
     <p class="meta"><strong>Last reviewed:</strong> October 1, 2026</p>
     <p>A compact header keeps Process Explorer and the edition badge together. When mapped data or report filters change, Selection changed compares displayed and new row counts while keeping the previous results visible until you choose Analyze new selection. The analysis time is available through the snapshot information control by mouse or keyboard.</p>

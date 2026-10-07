@@ -14,7 +14,7 @@
     <div class="eyebrow">Quick-start guide</div>
     <h1>Getting started with Threadseer</h1>
     <p class="lede">Add one visual, map three fields, and see the paths your work actually follows. Your report and process data stay in Power BI and are not sent to us.</p>
-    <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.0 &middot; <strong>Last reviewed:</strong> October 1, 2026</p>
+    <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.8 &middot; <strong>Last reviewed:</strong> October 7, 2026</p>
 
     <h2>Start in three steps</h2>
     <div class="grid steps-grid">
@@ -23,6 +23,7 @@
       <article class="card"><div class="step-number" aria-hidden="true">3</div><h3>Choose Analyze</h3><p>Select <strong>Analyze this selection</strong>. Threadseer loads the complete filtered dataset, builds the process, and opens the workspace.</p></article>
     </div>
     <p>Threadseer does not require a separate platform, Threadseer account, Python runtime, or preprocessing application. Power Query is optional when your source data needs reshaping.</p>
+    <p>Use report theme colors or choose the visual's accent, workspace background, text and process path colors in the Format pane. Invalid color settings fall back to the existing default colors. Formatting changes preserve the analyzed snapshot; they do not recalculate the process.</p>
 
     <details>
       <summary>Installation and organization settings</summary>
@@ -60,13 +61,16 @@
       </table></div>
     </details>
 
+    <p>Use unsummarized event fields, including numeric Additional Dimensions. If Threadseer reports an assigned field is unavailable, reassign it and choose Don't summarize where applicable. If it remains unavailable, add a fresh visual and map the required fields again. These steps do not start analysis; choose Analyze when the input is ready.</p>
+
     <h2>Read transitions and explore business hierarchies</h2>
-    <p>In Threadseer 1.1.0.0, clock labels show average elapsed time between activities. This is not necessarily waiting or active work. Use the question mark beside Edge labels for definitions, or choose frequency, case percentage or median time.</p>
+    <p>Clock labels show average elapsed time between activities. This is not necessarily waiting or active work. Use the question mark beside Edge labels for definitions, or choose frequency, case percentage or median time.</p>
     <p>Standard remains the default map. Optionally map Hierarchy 1 through Hierarchy 3 from highest to lowest; omitted levels are skipped. Activity Category is the final optional group before Activity, for up to four parent levels in total. Threadseer validates one parent per child; inconsistent hierarchy data shows a warning without breaking Standard.</p>
-    <p>Choose View: Hierarchy and Expand subprocess to open groups inside the chart. Up to eight adjacent or nested groups can be open; breadcrumbs and collapse controls take you back. Consecutive events in one group form a visit, while leaving and returning remains visible. Both modes use the same variant and coverage selections.</p>
+    <p>Choose View: Hierarchy and Expand subprocess to open groups inside the chart. Up to eight adjacent or nested groups can be open; breadcrumbs and collapse controls take you back. A group entry combines consecutive events in one group; leaving and returning counts as another entry. At the activity level, entries count individual activity occurrences, including consecutive repetitions. Both modes use the same variant and coverage selections.</p>
     <p>Select map cards or lines to highlight paths, and select them again or click empty canvas to clear. Dragging pans without clearing. Hover details wait half a second; keyboard focus and touch details are immediate. Explicit variant and case controls still filter the report.</p>
     <h2>Save an exploration with bookmarks</h2>
     <p>Analyze the data and arrange the map, then Add or Update a Power BI bookmark. Keep Data enabled and include Threadseer in All visuals or Selected visuals. Bookmarks restore the active tab, Standard or Hierarchy mode, map options, selected variants, expanded groups and pan/zoom. Update older bookmarks to capture this state.</p>
+    <p>Saving the report also records the current analysis tab for restoration with matching input. A bookmark with Data disabled leaves the current tab unchanged. If Power BI supplies changed data, choose Analyze or Reanalyze before using data-dependent exploration.</p>
     <p>A bookmark saves exploration settings, not the event log. If the analyzed data differs, Threadseer restores safe view options and explains why saved selections, expansions and zoom were not applied. Use Analyze or Reanalyze for changed data. Other tabs' searches, sorting, tooltips and scroll position are not captured.</p>
     <h2>When your filters change</h2>
     <p>Choose <strong>Analyze</strong> or <strong>Reanalyze</strong> to analyze a new or changed selection. Resizing the visual, changing formatting, or moving between views does not start a new analysis.</p>
@@ -78,6 +82,7 @@
     <h2>Resize and filter your report</h2>
     <p>When you make Threadseer smaller, use the scrollbar inside the visual to reach the remaining controls and results. Wide tables and navigation can scroll horizontally. Resizing preserves your analysis.</p>
     <p>Use explicit variant and case selections to filter other report visuals to the contributing cases. Process Map cards and lines highlight related paths locally. Existing report filters still apply. Clear the outlined selection to remove Threadseer's report filter. Report authors should enable the desired visual interactions.</p>
+    <p>Adding or removing variants updates the selected cases while retaining the complete analyzed snapshot. The report-filter status shows when Power BI has applied the selection. Clear removes Threadseer's case filter while keeping filters set elsewhere in your report.</p>
     <h2 id="workspace">Choose a view for your question</h2>
     <div class="grid workspace-grid">
       <article class="card"><h3>See the process</h3><p><strong>Process Map</strong> shows the activities and paths cases follow. <strong>Variants</strong> ranks the most common routes. <strong>Compare</strong> places two observed routes side by side. <strong>Conformance</strong> compares complete case routes with paths you mark as Accepted.</p></article>

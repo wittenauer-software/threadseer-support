@@ -13,7 +13,7 @@
   <main id="main" class="page"><div class="content">
     <div class="eyebrow">Product status</div><h1>Known issues and limits</h1>
     <p class="lede">Check whether a problem is a confirmed bug, a documented data limit, or a Power BI environment restriction.</p>
-    <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.7 &middot; <strong>Last reviewed:</strong> October 6, 2026</p>
+    <p class="meta"><strong>Version scope:</strong> Threadseer 1.1.0.8 &middot; <strong>Last reviewed:</strong> October 7, 2026</p>
 
     <h2>Known issues</h2>
     <p>The public GitHub tracker lists confirmed current bugs with the <em>known issue</em> label. If the filtered list is empty, there are no confirmed open issues with that label.</p>
@@ -36,7 +36,7 @@
     <h2>Supported Power BI environments</h2>
     <p>Use Threadseer in Power BI Desktop or interactive Power BI Service reports. Report behavior also depends on the Power BI version, browser, visual size, and organization settings. Power BI Mobile apps are outside the supported environment scope.</p>
     <p>Power BI does not offer individual dashboard pinning for slicer-style custom visuals such as Threadseer, which uses case filters to update other report visuals. To include Threadseer on a dashboard, pin the live report page. Open the source report for full analysis and filtering.</p>
-    <p>Map event-row columns to Threadseer, not aggregated measures. Power BI can refuse conversion from a measure-only chart, such as a Gauge. Add Threadseer as a new visual and map Case ID, Activity and Timestamp, or clear the incompatible measures before converting.</p>
+    <p>Threadseer needs event-row Case ID, Activity and Timestamp fields. A converted Gauge can keep its measures in setup, but those measures cannot be analyzed as events. Reassign or remove incompatible fields and choose Don't summarize for numeric event columns. If Power BI omits an assigned field from event rows, reassign it or add a fresh Threadseer and map the fields again.</p>
     <p>Embedded reports, national or regional clouds, Power BI Report Server, and export features have additional Power BI or licensing limits. Do not assume they behave the same as Power BI Desktop or Service.</p>
 
     <h2>Licensing limits</h2>

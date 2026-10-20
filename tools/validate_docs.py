@@ -170,13 +170,13 @@ for required_term in (
     "US$20 per assigned user per month",
     "US$200 per assigned user per year",
     "no time-limited Professional trial",
-    "United States",
+    "Threadseer Professional is offered worldwide through Microsoft Marketplace.",
 ):
     require(required_term in licensing, f"Licensing is missing approved term: {required_term}")
 
 require(
     "Where can I purchase Professional?" in licensing
-    and licensing.count("United States") == 1
+    and licensing.count("worldwide") == 1
     and "allow up to an hour" in licensing,
     "Pricing must explain purchasing scope and license activation without repeated launch notices",
 )
